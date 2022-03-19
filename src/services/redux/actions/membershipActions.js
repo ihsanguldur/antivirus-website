@@ -1,7 +1,10 @@
-import * as actionTypes from "./actionTypes.js";
+import * as actionTypes from "../actionTypes.js";
 
 export function memberships(response){
-    return {type : actionTypes.GET_MEMBERSHIPS, payload : response};
+    return {
+        type : actionTypes.GET_MEMBERSHIPS,
+        payload : response
+    };
 }
 
 export function getMemberships(){

@@ -1,10 +1,11 @@
 import {isEmailValid} from "../services/utils/validation";
 
-export function sendRequest(loginAction,email,password){
+export function sendRequest(sendResetEmail,email){
 
     if(isEmailValid(email)){
-        loginAction({email, password});
+        sendResetEmail({email});
         return true;
     }
     return false;
+
 }

@@ -1,8 +1,8 @@
 import React, {Component} from "react";
-import Header from "../header/Header";
-import About from "../About";
-import Memberships from "../Memberships";
-import Footer from "../Footer";
+import Header from "../components/header/Header";
+import About from "../components/About";
+import Memberships from "../components/Memberships";
+import Footer from "../components/Footer";
 
 export default class Home extends Component{
 

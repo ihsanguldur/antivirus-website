@@ -18,9 +18,9 @@ export default class Footer extends Component{
                             Serphenix
                         </p>
                         <div className={"text-white lg:text-xl md:text-lg sm:text-sm text-xs"}>
-                            Bizimle iletişime geç
+                            Contact Us
                         </div>
-                        <div className={"text-white flex mt-3"}>
+                        <div className={"text-white lg:text-xl md:text-lg sm:text-sm text-xs flex mt-3"}>
                             <BsFacebook className={"mx-2 cursor-pointer"}/>
                             <BsInstagram className={"mx-2 cursor-pointer"}/>
                             <BsTwitter className={"mx-2 cursor-pointer"}/>

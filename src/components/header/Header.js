@@ -7,15 +7,15 @@ export default class Header extends Component{
     render(){
         return (
             <div>
-                <Nav/>
+                <Nav />
                 <div className={"relative"}>
                     <img src={background} alt={"headerBackground"}/>
                     <div className={"absolute top-1/3 left-2/3"}>
                         <p className={"text-white font-bold lg:text-4xl md:text-3xl sm:text-2xl text-lg mb-5"}>
-                            Siber Güvenlikte Dünya Lideri
+                            World Leader in Cyber Security
                         </p>
                         <div className={"text-white lg:text-xl md:text-lg sm:text-sm text-xs"}>
-                            20 yıldır sizi ve ailenizi koruyoruz...
+                            We've been protecting you and your family for 20 years...
                         </div>
                     </div>
                 </div>

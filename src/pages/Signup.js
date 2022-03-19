@@ -1,43 +1,58 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
-import {Link} from "react-router-dom";
 import {bindActionCreators} from "redux";
-import {getCreatedUser} from "../../redux/actions/userActions";
-import {signupClickHandler} from "../../controllers/signupController";
-import navigation from "../../utilities/navigation";
+import {sendRequest} from "../controllers/signupController";
+import navigation from "../services/utils/navigation";
+import ErrorAlert from "../components/helpers/ErrorAlert";
+import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
+import {signup} from "../services/redux/actions/signupActions";
 
 class Signup extends Component{
 
+    state = {isValid : true, errorMessage: ""}
+
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.signedUser.success){
-            this.props.navigate("/");
+        if(this.props.signupState.success){
+            setTimeout(()=>{
+                this.props.signupState.success = "";
+                this.props.navigate("/login");
+            },3000);
+        }
+    }
+
+    signupClickHandler(){
+        const name = document.getElementById("nameForm").value;
+        const surname = document.getElementById("surnameForm").value;
+        const email = document.getElementById("emailForm").value;
+        const password = document.getElementById("passwordForm").value;
+
+        if(name !== "" && surname  !== "" && email !=="" && password !== ""){
+            if(sendRequest(this.props.actions.signup, name, surname, email, password)){
+                this.setState({isValid : true});
+                this.setState({errorMessage : ""});
+            }else{
+                this.setState({isValid : false});
+                this.setState({errorMessage : "Please enter a valid email/Password must contain 6 or more characters."});
+            }
+        }else{
+            this.setState({isValid : false});
+            this.setState({errorMessage : "Please fill all inputs."});
         }
     }
 
     render(){
         return (
             <div className={"container mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:w-1/2 lg:w-2/3 md:w-3/4 w-4/5"}>
-                <div
-                    id={"alert"}
-                    className={"flex justify-center items-center bg-red-500 text-white text-sm font-bold px-4 py-3 transition ease-in-out delay-200 duration-300 "
-                    + (this.props.signedUser.success===false?"opacity-100":"opacity-0")}
-                    role={"alert"}>
-                    <svg
-                        xmlns={"http://www.w3.org/2000/svg"}
-                        className={"h-4 w-4 full-current mr-2"}
-                        fill={"none"}
-                        viewBox={"0 0 24 24"}
-                        stroke={"currentColor"}
-                        strokeWidth={"2"}>
-                        <path
-                            strokeLinecap={"round"}
-                            strokeLinejoin={"round"}
-                            d={"M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"}/>
-                    </svg>
-                    <p>{this.props.signedUser.message}</p>
-                </div>
+                <ErrorAlert
+                    isValid={this.props.signupState.success===false?this.props.signupState.success:this.state.isValid}
+                    message={this.state.errorMessage===""?this.props.signupState.message:this.state.errorMessage}/>
+                <SuccessfulAlert
+                    isValid={this.props.signupState.success}
+                    message={"Sign Up Successful"}/>
                 <form className={"flex flex-col justify-center p-14 "}>
-                    <div className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>Serphenix</div>
+                    <div className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>
+                        Serphenix
+                    </div>
                     <div className={"flex"}>
                         <input
                             type={"text"}
@@ -69,9 +84,9 @@ class Signup extends Component{
                         className={"transition ease-in-out delay-100 duration-200 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                         type={"button"}
                         onClick={()=>{
-                            signupClickHandler(this.props.actions.signup);
+                            this.signupClickHandler()
                         }}>
-                        Kayıt Ol
+                        Sign Up
                     </button>
                     <div className={"text-gray-500 lg:text-xl md:text-lg sm:text-sm text-xs opacity-50 text-center mt-10"}>
                         copyright © 2002-2022 serphenix
@@ -84,14 +99,14 @@ class Signup extends Component{
 
 function mapStateToProps(state){
     return {
-        signedUser : state.userReducer
+        signupState : state.signupReducer
     }
 }
 
 function mapDispatchToProps(dispatch){
     return {
         actions : {
-            signup : bindActionCreators(getCreatedUser,dispatch)
+            signup : bindActionCreators(signup,dispatch)
         }
     }
 }

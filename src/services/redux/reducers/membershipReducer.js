@@ -1,4 +1,4 @@
-import * as actionTypes from "../actions/actionTypes.js";
+import * as actionTypes from "../actionTypes.js";
 import initialStates from "./initialStates";
 
 export default function membershipReducer(state = initialStates.temp, action){

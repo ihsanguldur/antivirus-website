@@ -1,12 +1,78 @@
 import React, {Component} from "react";
 import {userMenuController, menuController, changeNavOnScroll} from "../../controllers/navigationController";
+import navigation from "../../services/utils/navigation";
+import {connect} from "react-redux";
 
-export default class Nav extends Component{
+class Nav extends Component{
 
     state = {isMenuOpen : false, isUserMenuOpen : false};
 
     componentDidMount() {
         changeNavOnScroll();
+    }
+
+    signOut(){
+        localStorage.removeItem("user");
+        this.props.loggedUser.success = "";
+        this.props.loggedUser.data = {} ;
+        this.props.navigate("/login");
+    }
+
+    renderProfile(){
+        return (
+            <div
+                className={"absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"}>
+                <div className={"ml-3 relative"}>
+                    <div>
+                        <button
+                            type={"button"}
+                            id={"userMenuButton"}
+                            onClick={() => {
+                                userMenuController(this.state.isUserMenuOpen);
+                                this.setState({isUserMenuOpen: !this.state.isUserMenuOpen})
+                            }}
+                            className={"transition ease-in-out delay-200 duration-200 flex text-sm rounded-full hover:ring-1 focus:outline-none focus:ring-2 focus:ring-offset-2 ring-orange-500 ring-offset-orange-500 focus:ring-transparent"}
+                            aria-expanded={"false"}
+                            aria-haspopup={"true"}>
+                            <span className={"sr-only"}>open user menu</span>
+                            <img
+                                className={"h-8 w-8 rounded-full"}
+                                src={"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
+                                alt={""}/>
+                        </button>
+                    </div>
+                    <div
+                        className={"hidden transition ease-in-out delay-200 duration-200 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"}
+                        role={"menu"}
+                        id={"userMenu"}
+                        aria-orientation={"vertical"}
+                        aria-labelledby={"user-menu-button"}
+                    >
+                        <button
+                            className={"hover:bg-orange-500 w-full rounded-md hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
+                            role={"menuitem"}
+                            id={"user-menu-item-0"}>
+                            Go To Profile
+                        </button>
+                        <button
+                            className={"hover:bg-orange-500 w-full hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
+                            role={"menuitem"}
+                            id={"user-menu-item-1"}>
+                            Settings
+                        </button>
+                        <button
+                            className={"hover:bg-orange-500 w-full rounded-md hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
+                            onClick={() => {
+                                this.signOut();
+                            }}
+                            role={"menuitem"}
+                            id={"user-menu-item-2"}>
+                            Sign Out
+                        </button>
+                    </div>
+                </div>
+            </div>
+        );
     }
 
     render() {
@@ -81,84 +147,44 @@ export default class Nav extends Component{
                                         href={"#slider"}
                                         className={"transition ease-in-out delay-200 duration-200 text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}
                                         aria-current={"page"}>
-                                        Ürünler
+                                        Products
                                     </a>
                                     <a
                                         href={"#"}
                                         className={"transition ease-in-out delay-200 duration-200 text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}>
-                                        Destek
+                                        Support
                                     </a>
+                                    {!localStorage.getItem("user") && (<a
+                                        href={"/login"}
+                                        className={"transition ease-in-out delay-200 duration-200 text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}>
+                                        Sign In
+                                    </a>)}
                                 </div>
                             </div>
                         </div>
                         {/* profile button*/}
-                        <div className={"absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"}>
-                            <div className={"ml-3 relative"}>
-                                <div>
-                                    <button
-                                        type={"button"}
-                                        id={"userMenuButton"}
-                                        onClick={()=>{
-                                            userMenuController(this.state.isUserMenuOpen);
-                                            this.setState({isUserMenuOpen : !this.state.isUserMenuOpen})
-                                        }}
-                                        className={"transition ease-in-out delay-200 duration-200 flex text-sm rounded-full hover:ring-1 focus:outline-none focus:ring-2 focus:ring-offset-2 ring-orange-500 ring-offset-orange-500 focus:ring-transparent"}
-                                        aria-expanded={"false"}
-                                        aria-haspopup={"true"}>
-                                        <span className={"sr-only"}>open user menu</span>
-                                        <img
-                                            className={"h-8 w-8 rounded-full"}
-                                            src={"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
-                                            alt={""}/>
-                                    </button>
-                                </div>
-                                <div
-                                    className={"hidden transition ease-in-out delay-200 duration-200 origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none"}
-                                    role={"menu"}
-                                    id={"userMenu"}
-                                    aria-orientation={"vertical"}
-                                    aria-labelledby={"user-menu-button"}
-                                    >
-                                    <a
-                                        href={"#"}
-                                        className={"hover:bg-orange-500 rounded-md hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
-                                        role={"menuitem"}
-                                        id={"user-menu-item-0"}>
-                                        Profile Git
-                                    </a>
-                                    <a
-                                        href={"#"}
-                                        className={"hover:bg-orange-500 hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
-                                        role={"menuitem"}
-                                        id={"user-menu-item-1"}>
-                                        Ayarlar
-                                    </a>
-                                    <a
-                                        href={"#"}
-                                        className={"hover:bg-orange-500 rounded-md hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
-                                        role={"menuitem"}
-                                        id={"user-menu-item-2"}>
-                                        Çıkış Yap
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+                        {localStorage.getItem("user") && this.renderProfile()}
                     </div>
                 </div>
                 {/* for Navigation menu collapse*/}
                 <div className={this.state.isMenuOpen?"sm:hidden":"hidden"} id={"mobile-menu"}>
                     <div className={"px-2 pt-2 pb-3 space-y-1"}>
                         <a
-                            href={"#"}
+                            href={"#slider"}
                             className={"text-center transition ease-in-out delay-200 duration-200 text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}
                             aria-current={"page"}>
-                            Ürünler
+                            Products
                         </a>
                         <a
                             href={"#"}
                             className={"text-center transition ease-in-out delay-200 duration-200 text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}>
-                            Destek
+                            Support
                         </a>
+                        {!localStorage.getItem("user") && (<a
+                            href={"/login"}
+                            className={"text-center transition ease-in-out delay-200 duration-200 text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}>
+                            Sign In
+                        </a>)}
                     </div>
                 </div>
             </nav>
@@ -166,3 +192,11 @@ export default class Nav extends Component{
     }
 
 }
+
+function mapStateToProps(state){
+    return {
+        loggedUser : state.loginReducer
+    }
+}
+
+export default navigation(connect(mapStateToProps)(Nav));
