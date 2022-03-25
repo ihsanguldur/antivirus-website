@@ -5,3 +5,17 @@
 html {
     font-family: 'K2D', sans-serif;
 }
+
+#accordion::-webkit-scrollbar {
+    display: none;
+}
+
+@layer components {
+    .active{
+        @apply bg-orange-500 text-white
+    }
+
+    .animate{
+        @apply transition ease-in-out delay-100 duration-200
+    }
+}

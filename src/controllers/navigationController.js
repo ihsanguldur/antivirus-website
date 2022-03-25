@@ -31,15 +31,20 @@ export function menuController(state){
     }
 }
 
+function scrollEvent(){
+    const navbar = document.getElementsByTagName("nav");
+    let navClassList = navbar[0].classList;
+    if(window.scrollY > 10){
+        navClassList.replace("bg-transparent","bg-orange-500");
+    }else{
+        navClassList.replace("bg-orange-500","bg-transparent");
+    }
+}
+
 export function changeNavOnScroll(){
-    window.addEventListener("scroll",()=>{
-        const navbar = document.getElementsByTagName("nav");
-        let navClassList = navbar[0].classList;
-        if(window.scrollY > 10){
-            navClassList.replace("bg-transparent","bg-orange-500");
-            navClassList.add("bg-opacity-60");
-        }else{
-            navClassList.replace("bg-orange-500","bg-transparent");
-        }
-    });
+    window.addEventListener("scroll",scrollEvent);
+}
+
+export function clearScrollAnimation(){
+    window.removeEventListener("scroll",scrollEvent)
 }

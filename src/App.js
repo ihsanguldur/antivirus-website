@@ -5,6 +5,7 @@ import {Route, Routes} from "react-router-dom";
 import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
+import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
 
 export default class App extends Component{
   render(){
@@ -16,6 +17,7 @@ export default class App extends Component{
                 <Route path={"/signup"} element={<Signup/>}/>
                 <Route path={"/password/forgot"} element={<ForgotPassword/>} />
                 <Route path={"/password/reset"} element={<ResetPassword/>}/>
+                <Route path={"/support"} element={<FrequentlyAskedQuestions/>}/>
             </Routes>
         </div>
     );

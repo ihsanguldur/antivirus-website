@@ -26,7 +26,7 @@ class Memberships extends Component{
                     className={""}>
                         {this.props.memberships.data.map((m,i)=>(
                             <SwiperSlide key={i} className={"mb-12 self-center"}>
-                                <div className={"w-3/4 mx-auto rounded-b-lg hover:shadow-2xl shadow-xl h-full transition ease-in-out delay-100 duration-200 "}>
+                                <div className={"w-3/4 mx-auto rounded-b-lg hover:shadow-2xl shadow-xl h-full animate "}>
                                     <div className={"rounded-b-lg"}>
                                         <div className={"bg-orange-500 w-full text-white text-center font-bold lg:text-2xl md:text-lg sm:text-sm text-xs lg:py-14 md:py-10 py-6 rounded-t-lg"}>
                                             {m.name}
@@ -36,7 +36,7 @@ class Memberships extends Component{
                                                 <li key={i} className={"xl:py-5 lg:py-4 py-3"}>{f}</li>
                                             ))}
                                         </ul>
-                                        <button className={"left-1/2 -translate-x-1/2 lg:text-xl md:text-sm text-xs bg-orange-500 relative bottom-0 text-white py-2 lg:px-16 md:px-12 sm:px-8 px-4 rounded-md mb-5 hover:bg-orange-600 transition ease-in-out delay-100 duration-200 hover:shadow-xl"}>
+                                        <button className={"left-1/2 -translate-x-1/2 lg:text-xl md:text-sm text-xs bg-orange-500 relative bottom-0 text-white py-2 lg:px-16 md:px-12 sm:px-8 px-4 rounded-md mb-5 hover:bg-orange-600 animate hover:shadow-xl"}>
                                             {m.price + " TL"}
                                         </button>
                                     </div>

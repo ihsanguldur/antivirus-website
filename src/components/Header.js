@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import Nav from "./Nav";
-import background from "../../resource/images/header.jpg";
+import background from "../resource/images/header.jpg";
+import NavHeader from "./Nav";
 
 export default class Header extends Component{
 

@@ -1,4 +1,4 @@
-import {isPasswordValid} from "../services/utils/validation";
+import {isPasswordValid} from "../utils/validation";
 
 export function sendRequest(resetPassword, pass){
 

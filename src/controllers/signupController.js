@@ -1,4 +1,4 @@
-import {isEmailValid, isPasswordValid} from "../services/utils/validation";
+import {isEmailValid, isPasswordValid} from "../utils/validation";
 
 export function sendRequest(signupAction,name, surname, email, password){
 

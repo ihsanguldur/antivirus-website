@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {login} from "../services/redux/actions/loginActions";
 import {sendRequest} from "../controllers/loginController";
-import navigation from "../services/utils/navigation";
+import navigation from "../utils/navigation";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
 
@@ -73,7 +73,7 @@ class Login extends Component{
                         </div>
 
                         <button
-                            className={"transition ease-in-out delay-100 duration-200 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
+                            className={"animate bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                             type={"button"}
                             onClick={()=>{
                                this.loginClickHandler();

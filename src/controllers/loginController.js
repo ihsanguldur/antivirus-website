@@ -1,4 +1,4 @@
-import {isEmailValid} from "../services/utils/validation";
+import {isEmailValid} from "../utils/validation";
 
 export function sendRequest(loginAction,email,password){
 

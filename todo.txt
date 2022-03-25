@@ -1,3 +1,7 @@
+-ekran küçülünce resimlerin yerine başka bişey yap.
+-membership olayını yap.
+-ekran küçülünce sorun oluyor. ölçek olarak küçülünce.
+-bi ara componentlere ayırabilir misin bak.
 
 
--privateComponent ne bi bak.
+-privateComponent ne bi bak.(cookie)

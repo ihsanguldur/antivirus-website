@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {sendResetEmail} from "../services/redux/actions/sendResetEmailActions";
 import {bindActionCreators} from "redux";
-import navigation from "../services/utils/navigation";
+import navigation from "../utils/navigation";
 import {sendRequest} from "../controllers/forgotPasswordController";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
@@ -56,7 +56,7 @@ class ForgotPassword extends Component{
                         placeholder={"Please enter your email."}
                         className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
                     <button
-                        className={"transition ease-in-out delay-100 duration-200 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
+                        className={"animate bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                         type={"button"}
                         onClick={()=>{
                             this.forgotPasswordClickHandler();
