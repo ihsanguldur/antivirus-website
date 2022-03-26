@@ -1,6 +1,6 @@
 import React, {Component} from "react";
 
-export default class ErrorAlert extends Component{
+export default class ErrorAlert extends Component {
 
     render() {
         return (

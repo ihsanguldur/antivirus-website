@@ -1,6 +1,3 @@
--membership olayını yap.
--ekran küçülünce sorun oluyor. ölçek olarak küçülünce.
--bi ara componentlere ayırabilir misin bak.
-
+-membership responsive.
 
 -privateComponent ne bi bak.(cookie)

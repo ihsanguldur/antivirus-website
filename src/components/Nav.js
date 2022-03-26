@@ -9,22 +9,22 @@ import navigation from "../utils/navigation";
 import {connect} from "react-redux";
 import {Link} from "react-router-dom"
 
-class Nav extends Component{
+class Nav extends Component {
 
-    state = {isMenuOpen : false, isUserMenuOpen : false};
+    state = {isMenuOpen: false, isUserMenuOpen: false};
 
     componentDidMount() {
         changeNavOnScroll();
     }
 
-    signOut(){
+    signOut() {
         localStorage.removeItem("user");
         this.props.loggedUser.success = "";
-        this.props.loggedUser.data = {} ;
+        this.props.loggedUser.data = {};
         this.props.navigate("/login");
     }
 
-    renderProfile(){
+    renderProfile() {
         return (
             <div
                 className={"absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0"}>
@@ -82,7 +82,8 @@ class Nav extends Component{
 
     render() {
         return (
-            <nav className={"fixed z-50 w-full animate bg-opacity-60 " + (this.props.isSupport?"bg-orange-500":"bg-transparent")}>
+            <nav
+                className={"fixed z-50 w-full animate bg-opacity-60 " + (this.props.isSupport ? "bg-orange-500" : "bg-transparent")}>
                 <div className={"max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"}>
                     {/* navigation */}
                     <div className={"relative flex items-center justify-between h-16"}>
@@ -90,9 +91,9 @@ class Nav extends Component{
                             <button
                                 id={"menuButton"}
                                 type={"button"}
-                                onClick={()=>{
+                                onClick={() => {
                                     menuController(this.state.isMenuOpen);
-                                    this.setState({isMenuOpen : !this.state.isMenuOpen});
+                                    this.setState({isMenuOpen: !this.state.isMenuOpen});
                                 }}
                                 className={"animate inline-flex items-center justify-center p-2 rounded-md text-white hover:bg-orange-500 focus:outline-none"}
                                 aria-controls={"mobile-menu"}
@@ -156,7 +157,7 @@ class Nav extends Component{
                                     </a>)}
                                     {!this.props.isSupport && (<Link
                                         to={"/support"}
-                                        onClick={()=>{
+                                        onClick={() => {
                                             clearScrollAnimation()
                                         }}
                                         className={"animate text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}>
@@ -180,7 +181,7 @@ class Nav extends Component{
                     </div>
                 </div>
                 {/* for Navigation menu collapse*/}
-                <div className={this.state.isMenuOpen?"sm:hidden":"hidden"} id={"mobile-menu"}>
+                <div className={this.state.isMenuOpen ? "sm:hidden" : "hidden"} id={"mobile-menu"}>
                     <div className={"px-2 pt-2 pb-3 space-y-1"}>
                         {!this.props.isSupport && (<a
                             href={"#slider"}
@@ -211,9 +212,9 @@ class Nav extends Component{
 
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        loggedUser : state.loginReducer
+        loggedUser: state.loginReducer
     }
 }
 

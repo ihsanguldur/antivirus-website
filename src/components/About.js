@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import img from "../resource/images/foximg.png";
-export default class About extends Component{
+
+export default class About extends Component {
 
     render() {
         return (

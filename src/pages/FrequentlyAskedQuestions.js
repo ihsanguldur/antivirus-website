@@ -5,7 +5,9 @@ import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import {clearScrollAnimation} from "../controllers/navigationController";
 
-class FrequentlyAskedQuestions extends Component{
+class FrequentlyAskedQuestions extends Component {
+
+    state = {filter : ""}
 
     componentDidMount() {
         clearScrollAnimation();
@@ -16,12 +18,12 @@ class FrequentlyAskedQuestions extends Component{
             <div>
                 <Nav isSupport={true}/>
                 <div className={"container items-center grid grid-cols-12 mx-auto px-5 h-screen"}>
-
-                    <div className={"col-span-12 self-end mx-auto bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl text-3xl font-bold"}>
+                    <div
+                        className={"col-span-12 self-end mx-auto bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl text-3xl font-bold"}>
                         FAQ
                     </div>
-                    <FAQSideBar />
-                    <Questions />
+                    <FAQSideBar filter={this.state.filter}/>
+                    <Questions filter={this.state.filter}/>
                 </div>
                 <Footer/>
             </div>

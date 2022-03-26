@@ -7,46 +7,48 @@ import {sendRequest} from "../controllers/forgotPasswordController";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
 
-class ForgotPassword extends Component{
+class ForgotPassword extends Component {
 
-    state = {isEmailValid : true, errorMessage: ""}
+    state = {isEmailValid: true, errorMessage: ""}
 
     componentDidUpdate(prevProps, prevState, snapshot) {
-        if(this.props.getResetEmailResponse.success){
-            setTimeout(()=>{
+        if (this.props.getResetEmailResponse.success) {
+            setTimeout(() => {
                 this.props.navigate("/login");
-            },3000);
+            }, 3000);
         }
     }
 
-    forgotPasswordClickHandler(){
+    forgotPasswordClickHandler() {
         const email = document.getElementById("emailForm").value;
 
-        if(email !== ""){
-            if(sendRequest(this.props.actions.sendResetEmail, email)){
-                this.setState({isEmailValid : true});
-                this.setState({errorMessage : ""});
-            }else{
-                this.setState({isEmailValid : false});
-                this.setState({errorMessage : "Please enter a valid email."});
+        if (email !== "") {
+            if (sendRequest(this.props.actions.sendResetEmail, email)) {
+                this.setState({isEmailValid: true});
+                this.setState({errorMessage: ""});
+            } else {
+                this.setState({isEmailValid: false});
+                this.setState({errorMessage: "Please enter a valid email."});
             }
-        }else{
-            this.setState({isEmailValid : false});
-            this.setState({errorMessage : "Please enter a email."});
+        } else {
+            this.setState({isEmailValid: false});
+            this.setState({errorMessage: "Please enter a email."});
         }
     }
 
-    render(){
+    render() {
         return (
-            <div className={"container mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:w-1/2 lg:w-2/3 md:w-3/4 w-4/5"}>
+            <div
+                className={"container mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:w-1/2 lg:w-2/3 md:w-3/4 w-4/5"}>
                 <ErrorAlert
-                    isValid={this.props.getResetEmailResponse.success===false?this.props.getResetEmailResponse.success:this.state.isEmailValid}
-                    message={this.state.errorMessage===""?this.props.getResetEmailResponse.message:this.state.errorMessage}/>
+                    isValid={this.props.getResetEmailResponse.success === false ? this.props.getResetEmailResponse.success : this.state.isEmailValid}
+                    message={this.state.errorMessage === "" ? this.props.getResetEmailResponse.message : this.state.errorMessage}/>
                 <SuccessfulAlert
                     isValid={this.props.getResetEmailResponse.success}
                     message={this.props.getResetEmailResponse.message}/>
                 <form className={"flex flex-col justify-center p-14 "}>
-                    <div className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>
+                    <div
+                        className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>
                         Serphenix
                     </div>
                     <input
@@ -58,12 +60,13 @@ class ForgotPassword extends Component{
                     <button
                         className={"animate bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                         type={"button"}
-                        onClick={()=>{
+                        onClick={() => {
                             this.forgotPasswordClickHandler();
                         }}>
                         Send
                     </button>
-                    <div className={"text-gray-500 lg:text-xl md:text-lg sm:text-sm text-xs opacity-50 text-center mt-10"}>
+                    <div
+                        className={"text-gray-500 lg:text-xl md:text-lg sm:text-sm text-xs opacity-50 text-center mt-10"}>
                         copyright © 2002-2022 serphenix
                     </div>
                 </form>
@@ -73,16 +76,16 @@ class ForgotPassword extends Component{
 
 }
 
-function mapStateToProps(state){
+function mapStateToProps(state) {
     return {
-        getResetEmailResponse : state.sendResetEmailReducer
+        getResetEmailResponse: state.sendResetEmailReducer
     }
 }
 
-function mapDispatchToProps(dispatch){
+function mapDispatchToProps(dispatch) {
     return {
-        actions : {
-            sendResetEmail : bindActionCreators(sendResetEmail, dispatch)
+        actions: {
+            sendResetEmail: bindActionCreators(sendResetEmail, dispatch)
         }
     }
 }

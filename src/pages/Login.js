@@ -41,8 +41,8 @@ class Login extends Component{
         return(
             <div className={"container mx-auto absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 xl:w-1/2 lg:w-2/3 md:w-3/4 w-4/5"}>
                 <ErrorAlert
-                    isValid={this.props.loggedUser.success===false?this.props.loggedUser.success:this.state.isEmailValid}
-                    message={this.props.loggedUser.message?this.props.loggedUser.message:this.state.errorMessage}/>
+                    isValid={this.props.loggedUser.success === false ? this.props.loggedUser.success : this.state.isEmailValid}
+                    message={this.props.loggedUser.message ? this.props.loggedUser.message : this.state.errorMessage}/>
                 <SuccessfulAlert
                     isValid={this.props.loggedUser.success}
                     message={"Login Successful"}/>

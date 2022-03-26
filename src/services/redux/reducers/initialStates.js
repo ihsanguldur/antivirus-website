@@ -1,13 +1,13 @@
 const initialStates = {
-    currentLogin : {
-        success : "",
-        data : {
-            _id : ""
+    currentLogin: {
+        success: "",
+        data: {
+            _id: ""
         }
     },
-    temp : {
-        success : "",
-        data : []
+    temp: {
+        success: "",
+        data: []
     }
 }
 

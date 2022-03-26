@@ -5,6 +5,7 @@ import resetPasswordReducer from "./resetPasswordReducer.js";
 import loginReducer from "./loginReducer";
 import signupReducer from "./signupReducer";
 import faqReducer from "./faqReducer";
+import memberReducer from "./memberReducer";
 
 const rootReducer = combineReducers({
     membershipReducer,
@@ -12,7 +13,8 @@ const rootReducer = combineReducers({
     resetPasswordReducer,
     loginReducer,
     signupReducer,
-    faqReducer
+    faqReducer,
+    memberReducer
 });
 
 export default rootReducer;

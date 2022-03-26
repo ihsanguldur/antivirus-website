@@ -1,13 +1,13 @@
 import React, {Component} from "react";
 
-export default class SuccessfulAlert extends Component{
+export default class SuccessfulAlert extends Component {
 
     render() {
         return (
             <div
                 id={"alert"}
                 className={"flex justify-center items-center bg-green-500 text-white text-sm font-bold px-4 py-3 transition ease-in-out delay-200 duration-300 "
-                    + (this.props.isValid?"opacity-100":"opacity-0")}
+                    + (this.props.isValid ? "opacity-100" : "opacity-0")}
                 role={"alert"}>
                 <svg
                     xmlns={"http://www.w3.org/2000/svg"}

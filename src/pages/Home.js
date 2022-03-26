@@ -4,13 +4,23 @@ import About from "../components/About";
 import Memberships from "../components/Memberships";
 import Footer from "../components/Footer";
 import SupportFAB from "../components/SupportFAB";
+import {connect} from "react-redux";
+import {getMember} from "../services/redux/actions/memberActions";
+import {bindActionCreators} from "redux";
 
-export default class Home extends Component{
+class Home extends Component {
 
-    render(){
+    componentDidMount() {
+        const user = localStorage.getItem("user");
+        if (user) {
+            this.props.actions.getMember(JSON.parse(user)._id);
+        }
+    }
+
+    render() {
         return (
             <div>
-                <SupportFAB />
+                <SupportFAB/>
                 <Header/>
                 <About/>
                 <Memberships/>
@@ -18,5 +28,14 @@ export default class Home extends Component{
             </div>
         );
     }
-
 }
+
+function mapDispatchToProps(dispatch) {
+    return {
+        actions: {
+            getMember: bindActionCreators(getMember, dispatch)
+        }
+    }
+}
+
+export default connect(null, mapDispatchToProps)(Home)

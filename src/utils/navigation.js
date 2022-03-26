@@ -5,6 +5,6 @@ import {
 
 export default function navigation(Component) {
     return (props) => (
-        <Component {...props} params={useParams()} navigate={useNavigate()} />
+        <Component {...props} params={useParams()} navigate={useNavigate()}/>
     );
 }
