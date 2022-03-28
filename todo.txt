@@ -1,3 +1,3 @@
--membership responsive.
+-aşağı kaydırınca en üste götürecek buton.
 
 -privateComponent ne bi bak.(cookie)

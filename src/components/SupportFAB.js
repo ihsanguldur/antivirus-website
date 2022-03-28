@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import {BsHeadset} from "react-icons/bs";
 import {showFabBody} from "../controllers/fabController";
+import {bindActionCreators} from "redux";
+import {connect} from "react-redux";
 
-export default class SupportFAB extends Component {
+class SupportFAB extends Component {
 
     render() {
 
@@ -10,23 +12,15 @@ export default class SupportFAB extends Component {
             <div>
                 <div
                     id={"supportMenu"}
-                    className={"fixed flex flex-col bg-white bottom-[20%] right-[5%] xl:w-1/6 w-1/3 rounded-lg shadow-2xl z-50 lg:text-lg md:text-base sm:text-sm text-xs font-normal border text-center border-orange-500 hidden"}>
-                    <div
-                        onClick={(event) => {
-                            this.setState({active: "all"});
-                            this.props.actions.getFAQs();
-                        }}
-                        className={"flex-1 text-center py-4 border-b border-orange-500 animate font-bold lg:text-xl md:text-lg sm:text-base text-sm cursor-pointer hover:bg-orange-500 hover:text-white rounded-t-lg "}>
+                    className={"fixed flex flex-col bg-white bottom-[20%] right-[5%] xl:w-1/6 w-1/3 rounded-lg shadow-2xl z-50 lg:text-lg md:text-base  sm:text-sm text-xs font-normal border text-center border-orange-500 hidden"}>
+                    {this.props.member.success && (this.props.member.data.membership.features.find((f)=> f === "canlı destek") && (<div
+                        className={"flex-1 text-center py-4 animate font-bold lg:text-xl md:text-lg sm:text-base text-sm cursor-pointer hover:bg-orange-500 hover:text-white rounded-lg"}>
                         Canlı Destek
-                    </div>
-                    <div
-                        onClick={(event) => {
-                            this.setState({active: "download"});
-                            this.props.actions.getFAQs("download");
-                        }}
-                        className={"flex-1 text-center py-4 border-orange-500 animate font-bold lg:text-xl md:text-lg sm:text-base text-sm cursor-pointer hover:bg-orange-500 hover:text-white rounded-b-lg"}>
+                    </div>))}
+                    {this.props.member.success && (this.props.member.data.membership.features.find((f)=> f === "teknik destek") && (<div
+                        className={"flex-1 text-center py-4 animate font-bold lg:text-xl md:text-lg sm:text-base text-sm cursor-pointer hover:bg-orange-500 hover:text-white rounded-lg"}>
                         Teknik Destek
-                    </div>
+                    </div>))}
                 </div>
                 <div
                     onClick={() => {
@@ -42,3 +36,11 @@ export default class SupportFAB extends Component {
     }
 
 }
+
+function mapStateToProps(state){
+    return {
+        member : state.memberReducer
+    }
+}
+
+export default connect(mapStateToProps)(SupportFAB)
