@@ -1,3 +1,5 @@
 -aşağı kaydırınca en üste götürecek buton.
+-aos eklemeye bak.
+-socket programlamayı araştır.
 
 -privateComponent ne bi bak.(cookie)

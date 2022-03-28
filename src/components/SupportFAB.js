@@ -22,13 +22,13 @@ class SupportFAB extends Component {
                         Teknik Destek
                     </div>))}
                 </div>
-                <div
+                {this.props.member.success && (<div
                     onClick={() => {
                         showFabBody()
                     }}
                     className={"fixed cursor-pointer bottom-[10%] right-[5%] z-50 bg-orange-500 shadow-2xl hover:bg-orange-600 animate rounded-full"}>
                     <span><BsHeadset className={"lg:m-5 md:m-4 m-3  text-white "}/></span>
-                </div>
+                </div>)}
             </div>
 
         );
