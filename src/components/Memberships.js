@@ -10,9 +10,16 @@ import 'swiper/swiper.min.css'
 
 class Memberships extends Component {
 
-    state = {selectedMembership: "", isHidden: true}
+    state = {selectedMembership: "", isHidden: true, screenWidth : window.innerWidth}
+
+    widthListener(){
+        window.addEventListener("resize", ()=>{
+            this.setState({screenWidth : window.innerWidth});
+        });
+    }
 
     componentDidMount() {
+        this.widthListener();
         this.props.actions.getMemberships();
     }
 
@@ -100,7 +107,7 @@ class Memberships extends Component {
                 {this.renderOverlay()}
                 <div id={"slider"} className={"container mx-auto xl:py-32 lg:py-28 md:py-24 sm:py-20 py-16"}>
                     <Swiper
-                        slidesPerView={3}
+                        slidesPerView={this.state.screenWidth > 768?3:(this.state.screenWidth > 400?2:1)}
                         spaceBetween={30}
                         pagination={{
                             clickable: true,

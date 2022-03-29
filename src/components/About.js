@@ -5,13 +5,13 @@ export default class About extends Component {
 
     render() {
         return (
-            <div className={"container mx-auto grid grid-cols-2"}>
-                <div className={"my-32"}>
+            <div className={"container mx-auto grid sm:grid-cols-2 grid-cols-1"}>
+                <div className={"sm:my-32 my-12"}>
                     <img
                         src={img}
                         alt={"foximg"}/>
                 </div>
-                <div className={"text-center self-center font-medium lg:text-xl md:text-lg sm:text-sm text-xs pr-14"}>
+                <div className={"text-center self-center font-medium lg:text-xl md:text-lg text-sm sm:pr-14"}>
                     <p>
                         Lorem ipsum dolor sit amet, consectetur adipiscing elit.
                         Etiam sit amet ullamcorper ante. Morbi tempor eget felis eget sagittis.
