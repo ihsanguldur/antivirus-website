@@ -46,7 +46,7 @@ class Login extends Component{
                 <SuccessfulAlert
                     isValid={this.props.loggedUser.success}
                     message={"Login Successful"}/>
-                <form className={"flex flex-col justify-center p-14 "}>
+                <form className={"flex flex-col justify-center p-14"}>
                     <div className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>
                         Serphenix
                     </div>

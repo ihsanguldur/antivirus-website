@@ -7,6 +7,7 @@ import SupportFAB from "../components/SupportFAB";
 import {connect} from "react-redux";
 import {getMember} from "../services/redux/actions/memberActions";
 import {bindActionCreators} from "redux";
+import ScrollTop from "../components/ScrollTop";
 
 class Home extends Component {
 
@@ -21,6 +22,7 @@ class Home extends Component {
         return (
             <div>
                 <SupportFAB/>
+                <ScrollTop />
                 <Header/>
                 <About/>
                 <Memberships/>

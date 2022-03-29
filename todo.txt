@@ -1,5 +1,7 @@
 -aşağı kaydırınca en üste götürecek buton.
--aos eklemeye bak.
+-memberdaki teknik destek ve canlı destek olaylarını düzelt onlar öyle string olarak kalmasın bir şeyler düşün gerçi onlar constant ama olsun.
+-sayfa küçülünce membershiplerin sayısını azalt
 -socket programlamayı araştır.
+
 
 -privateComponent ne bi bak.(cookie)

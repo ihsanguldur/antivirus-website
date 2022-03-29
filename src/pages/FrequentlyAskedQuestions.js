@@ -4,6 +4,7 @@ import Questions from "../components/Questions";
 import Footer from "../components/Footer";
 import Nav from "../components/Nav";
 import {clearScrollAnimation} from "../controllers/navigationController";
+import ScrollTop from "../components/ScrollTop";
 
 class FrequentlyAskedQuestions extends Component {
 
@@ -16,6 +17,7 @@ class FrequentlyAskedQuestions extends Component {
     render() {
         return (
             <div>
+                <ScrollTop />
                 <Nav isSupport={true}/>
                 <div className={"container items-center grid grid-cols-12 mx-auto px-5 h-screen"}>
                     <div
