@@ -1,5 +1,3 @@
--memberdaki teknik destek ve canlı destek olaylarını düzelt onlar öyle string olarak kalmasın bir şeyler düşün gerçi onlar constant ama olsun.
--sayfa küçülünce membershiplerin sayısını azalt
 -socket programlamayı araştır.
 
 

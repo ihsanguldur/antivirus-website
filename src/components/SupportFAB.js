@@ -1,7 +1,6 @@
 import React, {Component} from "react";
 import {BsHeadset} from "react-icons/bs";
 import {showFabBody} from "../controllers/fabController";
-import {bindActionCreators} from "redux";
 import {connect} from "react-redux";
 
 class SupportFAB extends Component {
