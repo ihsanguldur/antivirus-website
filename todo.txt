@@ -1,4 +1,4 @@
 -socket programlamayı araştır.
-
+-aynı olan butonları vs tailwind içine al.
 
 -privateComponent ne bi bak.(cookie)

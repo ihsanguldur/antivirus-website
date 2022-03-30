@@ -8,6 +8,7 @@ import {connect} from "react-redux";
 import {getMember} from "../services/redux/actions/memberActions";
 import {bindActionCreators} from "redux";
 import ScrollTop from "../components/ScrollTop";
+import {io} from "socket.io-client";
 
 class Home extends Component {
 
@@ -16,6 +17,7 @@ class Home extends Component {
         if (user) {
             this.props.actions.getMember(JSON.parse(user)._id);
         }
+        io.connect("http://localhost:5000");
     }
 
     render() {

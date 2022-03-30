@@ -6,6 +6,7 @@ import Signup from "./pages/Signup";
 import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
+import LiveSupport from "./pages/LiveSupport";
 
 export default class App extends Component {
     render() {
@@ -18,6 +19,7 @@ export default class App extends Component {
                     <Route path={"/password/forgot"} element={<ForgotPassword/>}/>
                     <Route path={"/password/reset"} element={<ResetPassword/>}/>
                     <Route path={"/support"} element={<FrequentlyAskedQuestions/>}/>
+                    <Route path={"/live-support"} element={<LiveSupport />} />
                 </Routes>
             </div>
         );
