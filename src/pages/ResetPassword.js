@@ -57,13 +57,13 @@ class ResetPassword extends Component {
                         name={"password"}
                         id={"passwordForm"}
                         placeholder={"Password"}
-                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
+                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 md:text-sm text-xs"}/>
                     <input
                         type={"password"}
                         name={"passwordAgain"}
                         id={"passwordAgainForm"}
                         placeholder={"Password"}
-                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
+                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 md:text-sm text-xs"}/>
                     <button
                         className={"animate bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                         type={"button"}

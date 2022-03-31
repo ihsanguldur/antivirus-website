@@ -6,7 +6,7 @@ export default class SuccessfulAlert extends Component {
         return (
             <div
                 id={"alert"}
-                className={"flex justify-center items-center bg-green-500 text-white text-sm font-bold px-4 py-3 transition ease-in-out delay-200 duration-300 "
+                className={"flex justify-center items-center bg-green-500 text-white md:text-sm text-xs font-bold px-4 py-3 transition ease-in-out delay-200 duration-300 "
                     + (this.props.isValid ? "opacity-100" : "opacity-0")}
                 role={"alert"}>
                 <svg

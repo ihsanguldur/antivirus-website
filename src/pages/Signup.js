@@ -55,33 +55,32 @@ class Signup extends Component {
                         className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>
                         Serphenix
                     </div>
-                    <div className={"flex"}>
+                    <div className={"flex md:flex-row flex-col"}>
                         <input
                             type={"text"}
                             name={"name"}
                             id={"nameForm"}
                             placeholder={"name"}
-                            className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 grow mr-2"}/>
+                            className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 grow md:mr-2 md:text-base text-sm"}/>
                         <input
                             type={"text"}
                             name={"surname"}
                             id={"surnameForm"}
                             placeholder={"surname"}
-                            className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 grow ml-2"}/>
+                            className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 grow md:ml-2 md:text-base text-sm"}/>
                     </div>
-
                     <input
                         type={"email"}
                         name={"email"}
                         id={"emailForm"}
                         placeholder={"example@example.com"}
-                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
+                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 md:text-base text-sm"}/>
                     <input
                         type={"password"}
                         name={"password"}
                         id={"passwordForm"}
                         placeholder={"password"}
-                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
+                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 md:text-base text-sm"}/>
                     <button
                         className={"animate bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                         type={"button"}

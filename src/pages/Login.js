@@ -55,16 +55,16 @@ class Login extends Component{
                         name={"email"}
                         id={"emailForm"}
                         placeholder={"example@example.com"}
-                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
+                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 md:text-sm text-xs"}/>
                     <input
                         type={"password"}
                         name={"password"}
                         id={"passwordForm"}
                         placeholder={"password"}
-                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600"}/>
-                    <div className={"flex items-center justify-between"}>
-                        <div>
-                            <a href={"/signup"} className={"inline-block align-baseline font-bold lg:text-xl md:text-lg sm:text-sm text-xs text-blue-500 hover:text-blue-700 mr-5"}>
+                        className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 md:text-sm text-xs"}/>
+                    <div className={"flex md:flex-row flex-col items-center justify-between"}>
+                        <div className={"flex md:flex-row flex-col justify-items-center items-center"}>
+                            <a href={"/signup"} className={"inline-block align-baseline font-bold lg:text-xl md:text-lg sm:text-sm text-xs text-blue-500 hover:text-blue-700 md:mr-5"}>
                                 create new account.
                             </a>
                             <a href={"/password/forgot"} className={"inline-block align-baseline font-bold lg:text-xl md:text-lg sm:text-sm text-xs text-blue-500 hover:text-blue-700"}>
@@ -73,7 +73,7 @@ class Login extends Component{
                         </div>
 
                         <button
-                            className={"animate bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
+                            className={"animate bg-orange-500 hover:bg-orange-600 mt-2 text-white font-bold py-2 px-4 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs"}
                             type={"button"}
                             onClick={()=>{
                                this.loginClickHandler();
