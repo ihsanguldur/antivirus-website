@@ -8,12 +8,15 @@ export default class Header extends Component {
     render() {
         return (
             <div className={"max-w-max mx-auto"}>
+                {/*navigation bar.*/}
                 <Nav/>
                 <div className={"relative"}>
+                    {/*header background.*/}
                     <picture>
                         <source media={"(min-width : 640px)"} srcSet={background}/>
                         <img src={min640Header} alt={"min640Header"}/>
                     </picture>
+                    {/*header text.*/}
                     <div
                         className={"absolute sm:top-1/3 sm:left-2/3 sm:translate-x-0 sm:translate-y-0 text-center top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2"}>
                         <p className={"text-white font-bold lg:text-4xl md:text-3xl sm:text-2xl text-xl mb-5"}>

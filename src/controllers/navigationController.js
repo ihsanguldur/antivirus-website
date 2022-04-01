@@ -1,3 +1,5 @@
+
+//show and hide user profile menu
 export function userMenuController(state) {
 
     const userMenu = document.getElementById("userMenu");
@@ -14,6 +16,7 @@ export function userMenuController(state) {
     }
 }
 
+//for burger button menu.
 export function menuController(state) {
     const openMenu = document.getElementById("openMenu");
     const closeMenu = document.getElementById("closeMenu");
@@ -29,6 +32,7 @@ export function menuController(state) {
     }
 }
 
+//for navigation bar background effect.
 function scrollEvent() {
     const navbar = document.getElementsByTagName("nav");
     let navClassList = navbar[0].classList;
@@ -39,10 +43,12 @@ function scrollEvent() {
     }
 }
 
+//add listener
 export function changeNavOnScroll() {
     window.addEventListener("scroll", scrollEvent);
 }
 
+//clear listener
 export function clearScrollAnimation() {
     window.removeEventListener("scroll", scrollEvent)
 }

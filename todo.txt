@@ -1,5 +1,4 @@
--yorum satırları ekle.
--footerı düzenle.
+-footerı responsive yap.
 -test.
 
 -socket programlamayı araştır.

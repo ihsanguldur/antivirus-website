@@ -2,6 +2,8 @@ import React, {Component} from "react";
 
 export default class Message extends Component {
 
+    //message component for live support
+
     render() {
         return(
             <div className={"text-white my-5 mx-3 w-fit sm:text-sm text-xs rounded-b-2xl "

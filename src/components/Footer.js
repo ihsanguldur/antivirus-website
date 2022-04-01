@@ -9,11 +9,12 @@ export default class Footer extends Component {
         return (
             <div className={"max-w-max mx-auto"}>
                 <div className={"relative"}>
+                    {/*footer background*/}
                     <picture>
                         <source media={"(min-width : 640px)"} srcSet={footer}/>
                         <img src={min640Footer} alt={"min640Footer"}/>
                     </picture>
-
+                    {/*contact us*/}
                     <div className={"absolute top-1/4 left-[15%]"}>
                         <p className={"text-white font-bold lg:text-4xl md:text-3xl text-2xl lg:mb-5 mb-2"}>
                             Serphenix
@@ -27,7 +28,8 @@ export default class Footer extends Component {
                             <BsTwitter className={"mx-2 cursor-pointer"}/>
                         </div>
                     </div>
-                    <div className={"absolute top-1/4 right-[15%] w-1/4"}>
+                    {/*ask question*/}
+                    <div className={"absolute top-1/4 right-[15%] w-1/4 md:block hidden"}>
                         <p className={"text-white text-center font-bold lg:text-4xl md:text-3xl text-2xl lg:mb-5 mb-2"}>
                             Ask Question
                         </p>

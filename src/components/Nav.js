@@ -14,6 +14,7 @@ class Nav extends Component {
     state = {isMenuOpen: false, isUserMenuOpen: false};
 
     componentDidMount() {
+        //for background effect.
         changeNavOnScroll();
     }
 
@@ -24,6 +25,7 @@ class Nav extends Component {
         this.props.navigate("/login");
     }
 
+    //rendering user profile button.
     renderProfile() {
         return (
             <div
