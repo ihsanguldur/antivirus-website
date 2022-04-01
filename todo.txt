@@ -1,3 +1,7 @@
+-yorum satırları ekle.
+-footerı düzenle.
+-test.
+
 -socket programlamayı araştır.
 -livechat için soket bağlantısını kur mesaj gönderme ve almayı yap.
 
