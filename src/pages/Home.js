@@ -8,28 +8,34 @@ import {connect} from "react-redux";
 import {getMember} from "../services/redux/actions/memberActions";
 import {bindActionCreators} from "redux";
 import ScrollTop from "../components/ScrollTop";
-import {io} from "socket.io-client";
+import SupporterPage from "./SupporterPage";
 
 class Home extends Component {
+
+    state={isSupporter : false}
 
     componentDidMount() {
         const user = localStorage.getItem("user");
         if (user) {
-            this.props.actions.getMember(JSON.parse(user)._id);
+            const parsedUser = JSON.parse(user);
+            this.props.actions.getMember(parsedUser._id);
+            if(parsedUser.role === "supporter"){
+                this.setState({isSupporter : true});
+            }
         }
-        io.connect("http://localhost:5000");
     }
 
     render() {
         return (
-            <div>
-                <SupportFAB/>
-                <ScrollTop />
-                <Header/>
-                <About/>
-                <Memberships/>
-                <Footer/>
-            </div>
+            this.state.isSupporter?(<SupporterPage/>):
+                    (<div>
+                    <SupportFAB/>
+                    <ScrollTop />
+                    <Header/>
+                    <About/>
+                    <Memberships/>
+                    <Footer/>
+                </div>)
         );
     }
 }

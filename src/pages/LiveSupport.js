@@ -1,8 +1,25 @@
 import React, {Component} from "react";
 import {FiSend} from "react-icons/fi";
 import Message from "../components/Message";
+import {io} from "socket.io-client";
+import {connect} from "react-redux";
 
-export default class LiveSupport extends Component {
+class LiveSupport extends Component {
+
+    socket;
+
+    componentDidMount() {
+        //bir socket bağlantısı oluşturduk.
+        this.socket = io.connect("http://localhost:5000");
+    }
+
+    sendMessage(message, sender){
+        //socket bağlantısına bir chat eventi yayınladık.
+        this.socket.emit('chat',{
+            message : message,
+            sender : sender
+        });
+    }
 
     render() {
         return (
@@ -35,8 +52,12 @@ export default class LiveSupport extends Component {
                     </div>
                     {/*message box*/}
                     <div className={"flex items-center border-orange-500 border-x border-b rounded-b-2xl py-3 border-t"}>
-                        <input className={"focus:outline-none sm:text-md text-sm flex-1 sm:mx-10 ml-5"} type={"text"} name={"messageBox"} placeholder={"Enter a message..."} />
-                        <FiSend className={"sm:mr-10 mr-5 cursor-pointer text-orange-500 justify-self-center sm:h-5 sm:w-5 h-4 w-4"}/>
+                        <input id={"messageBox"} className={"focus:outline-none sm:text-md text-sm flex-1 sm:mx-10 ml-5"} type={"text"} name={"messageBox"} placeholder={"Enter a message..."} />
+                        <FiSend
+                            className={"sm:mr-10 mr-5 cursor-pointer text-orange-500 justify-self-center sm:h-5 sm:w-5 h-4 w-4"}
+                            onClick={()=>{
+                                this.sendMessage(document.getElementById("messageBox").value, this.props.member);
+                            }}/>
                     </div>
 
                 </div>
@@ -45,3 +66,11 @@ export default class LiveSupport extends Component {
     }
 
 }
+
+function mapStateToProps(state){
+    return {
+        member : state.memberReducer
+    }
+}
+
+export default connect(mapStateToProps)(LiveSupport)

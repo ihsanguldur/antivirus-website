@@ -1,8 +1,13 @@
--footerı responsive yap.
--test.
+
 
 -socket programlamayı araştır.
 -livechat için soket bağlantısını kur mesaj gönderme ve almayı yap.
 
 -aynı olan butonları vs tailwind içine al.
 -privateComponent ne bi bak.(cookie)
+
+
+
+
+NOT ÇIKAR
+-socket.io

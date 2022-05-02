@@ -37,7 +37,7 @@ export default class Footer extends Component {
                             </p>
                             <form className={"flex flex-col "}>
                                 <input
-                                    className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 lg:text-base md:text-sm text-xs"}
+                                    className={"rounded-md border-amber-500 border-2 my-2 p-2 focus:outline-orange-600 lg:text-base md:text-sm text-xs text-center"}
                                     name={"email"}
                                     type={"email"}
                                     id={"email"}
