@@ -10,7 +10,7 @@ export default class SupporterPage extends Component{
 
     render() {
         return (
-            <div className={"container mx-auto grid grid-cols-12 gap-12 items-center h-screen"}>
+            <div className={"grid grid-cols-12 items-center h-screen"}>
                 <SupporterLeftSideBar/>
                 <SupporterChat/>
                 <SupporterRightSideBar/>

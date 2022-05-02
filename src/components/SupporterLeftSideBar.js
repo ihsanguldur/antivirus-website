@@ -4,7 +4,7 @@ export default class SupporterLeftSideBar extends Component {
 
     render(){
         return(
-            <div className={"col-span-3 border border-orange-400 h-96 rounded-lg  bg-orange-300/20"}>
+            <div className={"col-span-3 border-l border-orange-400 h-full"}>
 
                 <div
                     className={"py-3 flex items-center border-b border-orange-400 cursor-pointer"}>
