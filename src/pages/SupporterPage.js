@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import SupporterChat from "../components/SupporterChat";
-import SupporterLeftSideBar from "../components/SupporterLeftSideBar";
-import SupporterRightSideBar from "../components/SupporterRightSideBar";
+import SupporterDashboard from "../components/SupporterDashboard";
 import SupporterNav from "../components/SupporterNav";
 
 export default class SupporterPage extends Component{
@@ -13,11 +11,7 @@ export default class SupporterPage extends Component{
         return (
             <div className={"flex"}>
                 <SupporterNav/>
-                <div className={"grid grid-cols-12 items-center h-screen flex-1"}>
-                    <SupporterLeftSideBar/>
-                    <SupporterChat/>
-                    <SupporterRightSideBar/>
-                </div>
+                <SupporterDashboard/>
             </div>
 
         );
