@@ -4,8 +4,8 @@ import {FiSend} from "react-icons/fi";
 
 export default class SupporterChat extends Component {
 
-    render(){
 
+    renderChat(){
         return (
             <div className={"flex flex-col h-full col-span-6 border-x border-orange-400"}>
                 {/*live chat header*/}
@@ -30,6 +30,25 @@ export default class SupporterChat extends Component {
                 </div>
 
             </div>
+        )
+    }
+
+    renderBefore(){
+        return (
+            <div className={"relative h-full col-span-6 border-x border-orange-400"}>
+                <div className={"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"}>
+                    <div className={"text-xl font-bold bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 text-transparent"}>
+                        Please Select One Customer.
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    render(){
+        return (
+            this.renderChat()
+            //this.renderBefore()
         )
 
     }
