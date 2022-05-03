@@ -1,6 +1,6 @@
--supporter page için navbar ekle.
--supporter page chat için overlay tasarla sadece bir kişiye tıkladığında chat gözüksün.(overlay yerine chati gösterip gizleyebilirsin arkada overlayde yapacağını yaparsın.)
--chat için headerına bir kapatma butonu koy chati kapatsın kapanınca overlaye geri dönsün.
+-redux ile stateleri düzenle ve tıklanma olaylarını yap.
+-controller içindeki sendRequestlerin adını değiştir.
+
 
 -aynı olan butonları vs tailwind içine al.
 -privateComponent ne bi bak.(cookie)

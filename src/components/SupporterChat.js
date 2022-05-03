@@ -15,7 +15,18 @@ export default class SupporterChat extends Component {
                         src={"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
                         alt={""}/>
                     <p className={"text-white sm:text-base text-sm flex-1 justify-self-start"}>ihsan Güldür</p>
-
+                    <svg
+                        xmlns={"http://www.w3.org/2000/svg"}
+                        className={"sm:h-5 sm:w-5 h-4 w-4 text-white text-center sm:mr-10 mr-5 cursor-pointer"}
+                        fill={"none"}
+                        viewBox={"0 0 24 24"}
+                        stroke={"currentColor"}
+                        strokeWidth={2}>
+                        <path
+                            strokeLinecap={"round"}
+                            strokeLinejoin={"round"}
+                            d={"M6 18L18 6M6 6l12 12"} />
+                    </svg>
                 </div>
                 {/*chat body*/}
                 <div className={"h-full "}>
@@ -54,19 +65,3 @@ export default class SupporterChat extends Component {
     }
 
 }
-
-/*
-* <svg
-                        xmlns={"http://www.w3.org/2000/svg"}
-                        className={"sm:h-5 sm:w-5 h-4 w-4 text-white text-center sm:mr-10 mr-5 cursor-pointer"}
-                        fill={"none"}
-                        viewBox={"0 0 24 24"}
-                        stroke={"currentColor"}
-                        strokeWidth={2}>
-                        <path
-                            strokeLinecap={"round"}
-                            strokeLinejoin={"round"}
-                            d={"M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1"} />
-                    </svg>
-*
-* */

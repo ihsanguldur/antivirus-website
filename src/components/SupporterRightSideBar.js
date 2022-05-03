@@ -2,8 +2,10 @@ import React, {Component} from 'react'
 
 export default class SupporterRightSideBar extends Component {
 
-    render() {
-        return (
+
+
+    renderRightSideBar(){
+        return(
             <div className={"col-span-3 border-r border-orange-400 h-full flex items-center flex-col justify-center"}>
                 <p className={"font-bold mb-8"}>Customer Information</p>
                 <img
@@ -18,6 +20,25 @@ export default class SupporterRightSideBar extends Component {
 
                 </div>
             </div>
+        )
+    }
+
+    renderBefore(){
+        return (
+            <div className={"col-span-3 border-r border-orange-400 h-full relative"}>
+                <div className={"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"}>
+                    <div className={"font-bold bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 text-transparent"}>
+                        Please Select One Customer.
+                    </div>
+                </div>
+            </div>
+        )
+    }
+
+    render() {
+        return (
+            this.renderRightSideBar()
+            //this.renderBefore()
         )
     }
 
