@@ -52,7 +52,7 @@ class SupporterChat extends Component {
 
     renderBefore(){
         return (
-            <div className={"relative h-full col-span-6 border-x border-orange-400"}>
+            <div className={"relative h-full col-span-6 border-x border-orange-400 bg-gradient-to-b from-orange-400/10 to-orange-600/20"}>
                 <div className={"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"}>
                     <div className={"text-xl font-bold bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 text-transparent"}>
                         Please Select One Customer.

@@ -20,8 +20,8 @@ class Nav extends Component {
 
     signOut() {
         localStorage.removeItem("user");
-        this.props.loggedUser.success = "";
-        this.props.loggedUser.data = {};
+        //this.props.loggedUser.success = "";
+        //this.props.loggedUser.data = {};
         this.props.navigate("/login");
     }
 

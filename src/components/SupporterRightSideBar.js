@@ -26,7 +26,7 @@ class SupporterRightSideBar extends Component {
 
     renderBefore(){
         return (
-            <div className={"col-span-3 border-r border-orange-400 h-full relative"}>
+            <div className={"col-span-3 border-r border-orange-400 h-full relative bg-gradient-to-b from-orange-400/10 to-orange-600/20"}>
                 <div className={"absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2"}>
                     <div className={"font-bold bg-clip-text bg-gradient-to-r from-orange-400 to-orange-600 text-transparent"}>
                         Please Select One Customer.

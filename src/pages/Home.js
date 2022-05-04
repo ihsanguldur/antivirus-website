@@ -18,9 +18,10 @@ class Home extends Component {
         const user = localStorage.getItem("user");
         if (user) {
             const parsedUser = JSON.parse(user);
-            this.props.actions.getMember(parsedUser._id);
             if(parsedUser.role === "supporter"){
                 this.setState({isSupporter : true});
+            }else{
+                this.props.actions.getMember(parsedUser._id);
             }
         }
     }
