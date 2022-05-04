@@ -1,8 +1,11 @@
 import React, {Component} from 'react'
 import Message from "./Message";
 import {FiSend} from "react-icons/fi";
+import {connect} from "react-redux";
+import {bindActionCreators} from "redux";
+import {resetSelectedCustomer} from '../services/redux/actions/customerSupportActions'
 
-export default class SupporterChat extends Component {
+class SupporterChat extends Component {
 
 
     renderChat(){
@@ -14,10 +17,13 @@ export default class SupporterChat extends Component {
                         className={"sm:h-8 sm:w-8 h-7 w-7 rounded-full ml-10 mr-3"}
                         src={"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}
                         alt={""}/>
-                    <p className={"text-white sm:text-base text-sm flex-1 justify-self-start"}>ihsan Güldür</p>
+                    <p className={"text-white sm:text-base text-sm flex-1 justify-self-start"}>{this.props.selectedCustomer.name +" " + this.props.selectedCustomer.surname}</p>
                     <svg
                         xmlns={"http://www.w3.org/2000/svg"}
                         className={"sm:h-5 sm:w-5 h-4 w-4 text-white text-center sm:mr-10 mr-5 cursor-pointer"}
+                        onClick={()=>{
+                            this.props.actions.resetSelectedCustomer();
+                        }}
                         fill={"none"}
                         viewBox={"0 0 24 24"}
                         stroke={"currentColor"}
@@ -58,10 +64,26 @@ export default class SupporterChat extends Component {
 
     render(){
         return (
-            this.renderChat()
+            this.props.selectedCustomer===""?this.renderBefore():this.renderChat()
             //this.renderBefore()
         )
 
     }
 
 }
+
+function mapStateToProps(state){
+    return{
+        selectedCustomer : state.customerSupportReducer
+    }
+}
+
+function mapDispatchToProps(dispatch){
+    return {
+        actions : {
+            resetSelectedCustomer : bindActionCreators(resetSelectedCustomer,dispatch)
+        }
+    }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(SupporterChat)

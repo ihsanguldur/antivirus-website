@@ -1,6 +1,5 @@
--redux ile stateleri düzenle ve tıklanma olaylarını yap.
 -controller içindeki sendRequestlerin adını değiştir.
-
+-memberları customer olarak değiştir.
 
 -aynı olan butonları vs tailwind içine al.
 -privateComponent ne bi bak.(cookie)
