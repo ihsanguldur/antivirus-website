@@ -10,6 +10,10 @@ html {
     display: none;
 }
 
+#supporterLeftSideBar::-webkit-scrollbar {
+    display:none
+}
+
 @layer components {
     .active{
         @apply bg-orange-500 text-white

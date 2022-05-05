@@ -1,4 +1,4 @@
--navbardaki tuşları düzenle.
+-supporterpage responsive.
 -supporter olarak giriş yapan kişinin bilgilerini görüntülediğin bir ekran.
 -şu please select one customer tasarımına bak kötü duruyor.
 -controller içindeki sendRequestlerin adını değiştir.
