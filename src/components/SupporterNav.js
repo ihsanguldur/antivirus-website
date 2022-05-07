@@ -3,6 +3,7 @@ import {BsFillChatDotsFill} from "react-icons/bs";
 import {FaUser} from 'react-icons/fa';
 import {IoIosExit} from 'react-icons/io';
 import navigation from "../utils/navigation";
+import {Link} from "react-router-dom";
 
 class SupporterNav extends Component {
 
@@ -20,20 +21,20 @@ class SupporterNav extends Component {
                         src={"https://tailwindui.com/img/logos/workflow-mark-orange-500.svg"}
                         alt={"antivirusLogo"}/>
                 </div>
-                <div className={"mt-8 text-orange-400 hover:text-orange-600 cursor-pointer animate"}>
+                <Link to={"/"} className={"mt-8 text-orange-400 hover:text-orange-600 cursor-pointer animate"}>
                     <BsFillChatDotsFill className={"h-5 w-5 inline-block ml-2"}/>
                     <span className={"mx-2 text-orange-400 text-center align-middle lg:text-base md:text-sm md:inline hidden"}>Messages</span>
-                </div>
-                <div className={"mt-8 text-orange-400 hover:text-orange-600 animate cursor-pointer"}>
+                </Link>
+                <Link to={"/profile"} className={"mt-8 text-orange-400 hover:text-orange-600 animate cursor-pointer"}>
                     <FaUser className={"h-5 w-5 inline-block ml-2"}/>
                     <span className={"mx-2 text-orange-400 text-center align-middle lg:text-base md:text-sm md:inline hidden"}>Profile</span>
-                </div>
-                <div className={"flex-1 mb-5 flex items-end cursor-pointer animate text-orange-400 hover:text-orange-600"}>
+                </Link>
+                <div className={"flex-1 mb-5 flex items-end cursor-pointer animate text-orange-400 hover:text-orange-600"}
+                     onClick={()=>{
+                         this.signOut();
+                     }}>
                     <IoIosExit
-                        className={"h-6 w-6 inline-block ml-2"}
-                        onClick={()=>{
-                            this.signOut();
-                        }}/>
+                        className={"h-6 w-6 inline-block ml-2"}/>
                     <span className={"mx-2 text-orange-400 text-center align-middle lg:text-base md:text-sm md:inline hidden"}>Exit</span>
                 </div>
             </div>

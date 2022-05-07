@@ -14,7 +14,7 @@ export default class App extends Component {
             <div>
                 <Routes>
                     <Route path={"/login"} element={<Login/>}/>
-                    <Route path={"/"} element={<Home/>}/>
+                    <Route path={"/*"} element={<Home/>}/>
                     <Route path={"/signup"} element={<Signup/>}/>
                     <Route path={"/password/forgot"} element={<ForgotPassword/>}/>
                     <Route path={"/password/reset"} element={<ResetPassword/>}/>
