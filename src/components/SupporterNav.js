@@ -29,13 +29,17 @@ class SupporterNav extends Component {
                     <FaUser className={"h-5 w-5 inline-block ml-2"}/>
                     <span className={"mx-2 text-orange-400 text-center align-middle lg:text-base md:text-sm md:inline hidden"}>Profile</span>
                 </Link>
-                <div className={"flex-1 mb-5 flex items-end cursor-pointer animate text-orange-400 hover:text-orange-600"}
-                     onClick={()=>{
-                         this.signOut();
-                     }}>
+                <div className={"flex-1 mb-5 flex items-end inline-block animate " }>
                     <IoIosExit
-                        className={"h-6 w-6 inline-block ml-2"}/>
-                    <span className={"mx-2 text-orange-400 text-center align-middle lg:text-base md:text-sm md:inline hidden"}>Exit</span>
+                        className={"h-6 w-6 inline-block ml-2 cursor-pointer text-orange-400 hover:text-orange-600 animate"}
+                        onClick={()=>{
+                            this.signOut();
+                        }}/>
+                    <span
+                        className={"mx-2 cursor-pointer text-orange-400 text-center align-middle lg:text-base md:text-sm md:inline hidden text-orange-400 hover:text-orange-600 animate"}
+                        onClick={()=>{
+                            this.signOut();
+                        }}>Exit</span>
                 </div>
             </div>
         )

@@ -1,6 +1,7 @@
 -supporter olarak giriş yapan kişinin bilgilerini görüntülediğin bir ekran.
 -controller içindeki sendRequestlerin adını değiştir.
 -memberları customer olarak değiştir.
+-localstorage kaydettikten sonra onu tekrar state içine at (user kullandığın her yerde sonra düzenle)
 
 -aynı olan butonları vs tailwind içine al.
 -privateComponent ne bi bak.(cookie)
