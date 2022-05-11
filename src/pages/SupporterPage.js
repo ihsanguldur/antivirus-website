@@ -7,7 +7,7 @@ import {Route, Routes} from "react-router-dom";
 export default class SupporterPage extends Component{
 // left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 absolute w-5/6 mx-auto
 
-    state={whichUser : "", isActive : false}
+    //tate={whichUser : "", isActive : false}
 
     render() {
         return (

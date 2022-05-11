@@ -55,12 +55,16 @@ class Nav extends Component {
                         id={"userMenu"}
                         aria-orientation={"vertical"}
                         aria-labelledby={"user-menu-button"}>
-                        <button
-                            className={"hover:bg-orange-500 w-full rounded-md hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
+                        <Link
+                            className={"hover:bg-orange-500 w-full rounded-md hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700 text-center"}
                             role={"menuitem"}
-                            id={"user-menu-item-0"}>
+                            to={"/user-profile"}
+                            id={"user-menu-item-0"}
+                            onClick={() => {
+                                window.scroll(0);
+                            }}>
                             Go To Profile
-                        </button>
+                        </Link>
                         <button
                             className={"hover:bg-orange-500 w-full hover:bg-opacity-75 hover:text-white block px-4 py-2 text-sm text-gray-700"}
                             role={"menuitem"}
@@ -85,7 +89,7 @@ class Nav extends Component {
     render() {
         return (
             <nav
-                className={"fixed z-50 w-full animate bg-opacity-60 " + (this.props.isSupport ? "bg-orange-500" : "bg-transparent")}>
+                className={"fixed z-50 w-full animate bg-opacity-60 " + (this.props.isAnother ? "bg-orange-500" : "bg-transparent")}>
                 <div className={"max-w-7xl mx-auto px-2 sm:px-6 lg:px-8"}>
                     {/* navigation */}
                     <div className={"relative flex items-center justify-between h-16"}>
@@ -151,13 +155,13 @@ class Nav extends Component {
                             {/*navigation menu*/}
                             <div className={"hidden sm:block sm:ml-6"}>
                                 <div className={"flex space-x-4"}>
-                                    {!this.props.isSupport && (<a
+                                    {!this.props.isAnother && (<a
                                         href={"#slider"}
                                         className={"animate text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}
                                         aria-current={"page"}>
                                         Products
                                     </a>)}
-                                    {!this.props.isSupport && (<Link
+                                    {!this.props.isAnother && (<Link
                                         to={"/support"}
                                         onClick={() => {
                                             clearScrollAnimation()
@@ -165,7 +169,7 @@ class Nav extends Component {
                                         className={"animate text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}>
                                         Support
                                     </Link>)}
-                                    {this.props.isSupport && (<Link
+                                    {this.props.isAnother && (<Link
                                         to={"/"}
                                         className={"animate text-white border-b-2 border-transparent hover:border-b-2 hover:border-b-orange-500 px-3 py-2 text-base font-medium"}>
                                         Home
@@ -185,18 +189,21 @@ class Nav extends Component {
                 {/* for Navigation menu collapse*/}
                 <div className={this.state.isMenuOpen ? "sm:hidden" : "hidden"} id={"mobile-menu"}>
                     <div className={"px-2 pt-2 pb-3 space-y-1"}>
-                        {!this.props.isSupport && (<a
+                        {!this.props.isAnother && (<a
                             href={"#slider"}
                             className={"text-center animate text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}
                             aria-current={"page"}>
                             Products
                         </a>)}
-                        {!this.props.isSupport && (<Link
+                        {!this.props.isAnother && (<Link
                             to={"/support"}
-                            className={"text-center animate text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}>
+                            className={"text-center animate text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}
+                            onClick={() => {
+                                clearScrollAnimation()
+                            }}>
                             Support
                         </Link>)}
-                        {this.props.isSupport && (<Link
+                        {this.props.isAnother && (<Link
                             to={"/"}
                             className={"text-center animate text-white border-transparent border-2 hover:border-orange-500 focus:bg-orange-500 block px-3 py-2 rounded-md text-base font-medium"}>
                             Home

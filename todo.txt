@@ -1,7 +1,9 @@
--supporter olarak giriş yapan kişinin bilgilerini görüntülediğin bir ekran.
+-profil ekranındaki bilgileri getir.
+-profil ekranını normal kullanıcı için de uygula.
 -controller içindeki sendRequestlerin adını değiştir.
 -memberları customer olarak değiştir.
 -localstorage kaydettikten sonra onu tekrar state içine at (user kullandığın her yerde sonra düzenle)
+-localstorage için utils yaz.
 
 -aynı olan butonları vs tailwind içine al.
 -privateComponent ne bi bak.(cookie)

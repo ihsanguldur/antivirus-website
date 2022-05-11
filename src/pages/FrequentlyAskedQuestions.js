@@ -18,7 +18,7 @@ class FrequentlyAskedQuestions extends Component {
         return (
             <div>
                 <ScrollTop />
-                <Nav isSupport={true}/>
+                <Nav isAnother={true}/>
                 <div className={"container items-center grid grid-cols-12 mx-auto px-5 h-screen"}>
                     <div
                         className={"col-span-12 self-end mx-auto bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl text-3xl font-bold"}>

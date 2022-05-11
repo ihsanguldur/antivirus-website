@@ -7,6 +7,7 @@ import ForgotPassword from "./pages/ForgotPassword";
 import ResetPassword from "./pages/ResetPassword";
 import FrequentlyAskedQuestions from "./pages/FrequentlyAskedQuestions";
 import LiveSupport from "./pages/LiveSupport";
+import UserProfile from "./pages/UserProfile";
 
 export default class App extends Component {
     render() {
@@ -20,6 +21,7 @@ export default class App extends Component {
                     <Route path={"/password/reset"} element={<ResetPassword/>}/>
                     <Route path={"/support"} element={<FrequentlyAskedQuestions/>}/>
                     <Route path={"/live-support"} element={<LiveSupport />} />
+                    <Route path={"/user-profile"} element={<UserProfile isUser={true}/>}/>
                 </Routes>
             </div>
         );

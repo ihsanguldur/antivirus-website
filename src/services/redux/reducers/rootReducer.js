@@ -7,6 +7,7 @@ import signupReducer from "./signupReducer";
 import faqReducer from "./faqReducer";
 import memberReducer from "./memberReducer";
 import customerSupportReducer from './customerSupportReducer';
+import userReducer from './userReducer';
 
 const rootReducer = combineReducers({
     membershipReducer,
@@ -16,7 +17,8 @@ const rootReducer = combineReducers({
     signupReducer,
     faqReducer,
     memberReducer,
-    customerSupportReducer
+    customerSupportReducer,
+    userReducer
 });
 
 export default rootReducer;

@@ -9,6 +9,7 @@ import {getMember} from "../services/redux/actions/memberActions";
 import {bindActionCreators} from "redux";
 import ScrollTop from "../components/ScrollTop";
 import SupporterPage from "./SupporterPage";
+import {getUser} from "../services/redux/actions/userActions";
 
 class Home extends Component {
 
@@ -16,6 +17,7 @@ class Home extends Component {
 
     componentDidMount() {
         const user = localStorage.getItem("user");
+        this.props.actions.getUser(JSON.parse(user));
         if (user) {
             const parsedUser = JSON.parse(user);
             if(parsedUser.role === "supporter"){
@@ -41,12 +43,19 @@ class Home extends Component {
     }
 }
 
+function mapStateToProps(state){
+    return {
+        member : state.memberReducer
+    }
+}
+
 function mapDispatchToProps(dispatch) {
     return {
         actions: {
-            getMember: bindActionCreators(getMember, dispatch)
+            getMember: bindActionCreators(getMember, dispatch),
+            getUser : bindActionCreators(getUser,dispatch)
         }
     }
 }
 
-export default connect(null, mapDispatchToProps)(Home)
+export default connect(mapStateToProps, mapDispatchToProps)(Home)
