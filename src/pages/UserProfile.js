@@ -15,7 +15,7 @@ class UserProfile extends Component{
     render(){
         return(
             <div className={"h-screen grid grid-cols-12 flex-1 border-x border-orange-400"}>
-                <Nav isAnother={true}/>
+                {this.props.isUser?(<Nav isAnother={true}/>):""}
                 <div className={"md:bg-orange-400 bg-transparent -z-50 absolute h-screen w-1/4 text-transparent"}>
                     a
                 </div>
