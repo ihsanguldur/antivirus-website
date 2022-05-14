@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {login} from "../services/redux/actions/loginActions";
-import {sendRequest} from "../controllers/loginController";
+import {loginRequest} from "../controllers/loginController";
 import navigation from "../utils/navigation";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
@@ -25,7 +25,7 @@ class Login extends Component{
         const password = document.getElementById("passwordForm").value
 
         if(email !== "" && password !== ""){
-            if(sendRequest(this.props.actions.login, email,password)){
+            if(loginRequest(this.props.actions.login, email,password)){
                 this.setState({isEmailValid : true});
             }else{
                 this.setState({isEmailValid : false});

@@ -1,7 +1,7 @@
 import {isEmailValid} from "../utils/validation";
 
 //check mail is valid.
-export function sendRequest(loginAction, email, password) {
+export function loginRequest(loginAction, email, password) {
 
     if (isEmailValid(email)) {
         //if its valid send request.
