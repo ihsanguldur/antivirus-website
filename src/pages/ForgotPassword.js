@@ -3,7 +3,7 @@ import {connect} from "react-redux";
 import {sendResetEmail} from "../services/redux/actions/sendResetEmailActions";
 import {bindActionCreators} from "redux";
 import navigation from "../utils/navigation";
-import {resetEmailRequest} from "../controllers/forgotPasswordController";
+import {forgotPasswordRequest} from "../controllers/forgotPasswordController";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
 
@@ -23,7 +23,7 @@ class ForgotPassword extends Component {
         const email = document.getElementById("emailForm").value;
 
         if (email !== "") {
-            if (resetEmailRequest(this.props.actions.sendResetEmail, email)) {
+            if (forgotPasswordRequest(this.props.actions.sendResetEmail, email)) {
                 this.setState({isEmailValid: true});
                 this.setState({errorMessage: ""});
             } else {

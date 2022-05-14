@@ -2,7 +2,7 @@ import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {resetPassword} from "../services/redux/actions/resetPasswordActions";
-import {sendRequest} from "../controllers/resetPasswordController";
+import {resetPasswordRequest} from "../controllers/resetPasswordController";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
 
@@ -24,7 +24,7 @@ class ResetPassword extends Component {
         const passAgain = document.getElementById("passwordAgainForm").value;
 
         if (pass === passAgain) {
-            if (sendRequest(this.props.actions.resetPassword, pass)) {
+            if (resetPasswordRequest(this.props.actions.resetPassword, pass)) {
                 this.setState({isPasswordValid: true});
                 this.setState({errorMessage: ""})
             } else {

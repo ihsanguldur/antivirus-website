@@ -1,7 +1,7 @@
 import {isPasswordValid} from "../utils/validation";
 
 //check password is valid.
-export function sendRequest(resetPassword, pass) {
+export function resetPasswordRequest(resetPassword, pass) {
 
     const params = new URLSearchParams(window.location.search);
     const token = params.get("token");
