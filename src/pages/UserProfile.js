@@ -16,9 +16,7 @@ class UserProfile extends Component{
         return(
             <div className={"h-screen grid grid-cols-12 flex-1 border-x border-orange-400"}>
                 {this.props.isUser?(<Nav isAnother={true}/>):""}
-                <div className={"md:bg-orange-400 bg-transparent -z-50 absolute h-screen w-1/4 text-transparent"}>
-                    a
-                </div>
+                <div className={"md:bg-orange-400 bg-transparent -z-50 absolute h-screen w-1/4 text-transparent"}/>
                 <img
                     className={"xl:h-96 xl:w-96 lg:h-64 lg:w-64 md:h-48 md:w-48 h-36 w-36 rounded-full mb-8 md:justify-self-start md:self-center self-end justify-self-center md:col-start-2 md:col-span-4 col-span-12"}
                     src={"https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"}

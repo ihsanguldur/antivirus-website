@@ -1,8 +1,9 @@
 -controller içindeki sendRequestlerin adını değiştir.
 -memberları customer olarak değiştir.
+-user profiledaki içerikleri değiştirilebilir yap. User güncelle.
 -localstorage kaydettikten sonra onu tekrar state içine at (user kullandığın her yerde sonra düzenle)
 -localstorage için utils yaz.
-
+-renderIf Componenti yaz.
 -privateComponent ne bi bak.(cookie)
 
 
