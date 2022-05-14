@@ -76,7 +76,7 @@ class UserProfile extends Component{
                     <div className={"my-10 "}>
                         <WarningAlert isValid={this.state.onEdit} message={"You are on edit!"} />
                     </div>
-                    <p className={"my-3 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs"}>
+                    <p className={"my-3 xl:text-xl lg:text-lg md:text-base text-sm"}>
                         <span className={"font-bold text-orange-400"}>Name : </span>
                         <input
                             className={"placeholder-black " + (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
@@ -85,7 +85,7 @@ class UserProfile extends Component{
                             placeholder={this.props.user.data.name +" "+ this.props.user.data.surname}/>
                         {/*this.props.user.data.name +" "+ this.props.user.data.surname*/}
                     </p>
-                    <p className={"my-3 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs"}>
+                    <p className={"my-3 xl:text-xl lg:text-lg md:text-base text-sm"}>
                         <span className={"font-bold text-orange-400"}>Email : </span>
                         <input
                             className={"placeholder-black "+ (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
@@ -95,16 +95,16 @@ class UserProfile extends Component{
                         {/*this.props.user.data.email*/}
                     </p>
                     {this.props.isUser&&
-                        <p className={"my-3 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs"}>
+                        <p className={"my-3 xl:text-xl lg:text-lg md:text-base text-sm"}>
                             <span className={"font-bold text-orange-400"}>Membership : </span>
                             {this.props.user.data.membershipName}
                     </p>}
-                    <p className={"my-3 xl:text-xl lg:text-lg md:text-base sm:text-sm text-xs"}>
+                    <p className={"my-3 xl:text-xl lg:text-lg md:text-base"}>
                         <span className={"font-bold text-orange-400"}> Create Date : </span>
                         {this.props.user.data.createdAt?this.props.user.data.createdAt.substring(0,10):""}
                     </p>
                     <button
-                        className={"animate bg-orange-500 hover:bg-orange-600 mt-5 text-white font-bold py-2 px-6 rounded-md focus:outline-none lg:text-xl md:text-lg sm:text-sm text-xs h-fit "}
+                        className={"animate bg-orange-500 hover:bg-orange-600 mt-5 text-white font-bold py-2 px-6 rounded-md focus:outline-none xl:text-xl lg:text-lg md:text-base text-sm h-fit"}
                         type={"button"}
                         onClick={()=>{
                             if(this.state.onEdit){
