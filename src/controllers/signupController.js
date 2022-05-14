@@ -1,7 +1,7 @@
 import {isEmailValid, isPasswordValid} from "../utils/validation";
 
 //check mail and password are valid.
-export function sendRequest(signupAction, name, surname, email, password) {
+export function singUpRequest(signupAction, name, surname, email, password) {
 
     if (isEmailValid(email) && isPasswordValid(password)) {
         //if valid send request.

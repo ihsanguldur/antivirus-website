@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {sendRequest} from "../controllers/signupController";
+import {singUpRequest} from "../controllers/signupController";
 import navigation from "../utils/navigation";
 import ErrorAlert from "../components/helpers/ErrorAlert";
 import SuccessfulAlert from "../components/helpers/SuccessfulAlert";
@@ -27,7 +27,7 @@ class Signup extends Component {
         const password = document.getElementById("passwordForm").value;
 
         if (name !== "" && surname !== "" && email !== "" && password !== "") {
-            if (sendRequest(this.props.actions.signup, name, surname, email, password)) {
+            if (singUpRequest(this.props.actions.signup, name, surname, email, password)) {
                 this.setState({isValid: true});
                 this.setState({errorMessage: ""});
             } else {
