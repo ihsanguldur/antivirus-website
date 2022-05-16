@@ -1,6 +1,8 @@
--user profiledaki içerikleri değiştirilebilir yap. User güncelle.
 -localstorage için utils yaz.
 -renderIf Componenti yaz.
+
+
+
 -privateComponent ne bi bak.(cookie)
 
 

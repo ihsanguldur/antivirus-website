@@ -46,7 +46,7 @@ class ResetPassword extends Component {
                     message={this.state.errorMessage === "" ? this.props.resetPasswordState.message : this.state.errorMessage}/>
                 <SuccessfulAlert
                     isValid={this.props.resetPasswordState.success}
-                    message={this.props.resetPasswordState.message}/>
+                    message={this.props.resetPasswordState.data}/>
                 <form className={"flex flex-col justify-center p-14 "}>
                     <div
                         className={"self-center bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent w-fit text-center my-5 lg:text-4xl md:text-3xl sm:text-2xl text-lg font-bold"}>
