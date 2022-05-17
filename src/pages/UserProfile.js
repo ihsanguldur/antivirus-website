@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
-import {getUser} from "../services/redux/actions/userActions";
+import {getUser, updateUser} from "../services/redux/actions/userActions";
 import Nav from "../components/Nav";
 import WarningAlert from "../components/helpers/WarningAlert";
 
@@ -40,6 +40,23 @@ class UserProfile extends Component{
                     <button
                         className={"animate lg:text-xl md:text-sm text-xs bg-orange-500 hover:bg-orange-600 text-white text-center rounded-lg lg:py-3 lg:px-5 py-2 px-3 absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2"}
                         onClick={() => {
+                            let name = document.getElementById("name").value;
+                            let email = document.getElementById("email").value;
+                            if(!name.includes(" ")){
+                                alert("aga kontrol et.");
+                            }else{
+                                let nameArr = name.split(" ");
+                                if(nameArr.length === 1){
+                                    nameArr[0] = this.props.user.data.name;
+                                    nameArr[1] = this.props.user.data.surname;
+                                }
+                                if(email === ""){
+                                    email = this.props.user.data.email;
+                                }
+                                this.props.actions.updateUser(this.props.user.data._id, {name : nameArr[0], surname : nameArr[1], email : email});
+                            }
+                            //name.split(" ");
+                            console.log(name.split(" "), email);
                             this.setState({onEdit : false});
                             this.setState({isHidden: true});
                         }}>
@@ -80,7 +97,11 @@ class UserProfile extends Component{
                         <span className={"font-bold text-orange-400"}>Name : </span>
                         <input
                             className={"placeholder-black " + (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
+                            id={"name"}
                             readOnly={!this.state.onEdit}
+                            onChange={(e)=>{
+                                console.log(e.target.value)
+                            }}
                             type={"text"}
                             placeholder={this.props.user.data.name +" "+ this.props.user.data.surname}/>
                         {/*this.props.user.data.name +" "+ this.props.user.data.surname*/}
@@ -89,6 +110,7 @@ class UserProfile extends Component{
                         <span className={"font-bold text-orange-400"}>Email : </span>
                         <input
                             className={"placeholder-black "+ (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
+                            id={"email"}
                             readOnly={!this.state.onEdit}
                             type={"email"}
                             placeholder={this.props.user.data.email}/>
@@ -132,7 +154,8 @@ function mapStateToProps(state){
 function mapDispatchToProps(dispatch){
     return {
         actions : {
-            getUser : bindActionCreators(getUser,dispatch)
+            getUser : bindActionCreators(getUser,dispatch),
+            updateUser : bindActionCreators(updateUser, dispatch)
         }
     }
 }

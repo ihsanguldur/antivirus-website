@@ -12,6 +12,18 @@ export default function userReducer(state = initialStates.temp,action){
                 newState = state;
             }
             return newState;
+        case actionTypes.UPDATE_USER:
+            let newState1;
+            const user = JSON.parse(localStorage.getItem("user"));
+            if(action.payload.success){
+                const data = {...user, name : action.payload.data.name, surname : action.payload.data.surname, email : action.payload.data.email}
+                newState1 = {success : action.payload.success, data : data};
+                localStorage.setItem("user", JSON.stringify(data));
+            }else {
+                newState1 = {success:false, data : user};
+            }
+            console.log(newState1)
+            return newState1;
         default:
             return state;
     }

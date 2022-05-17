@@ -1,3 +1,4 @@
+-update profile olaylarını bitir.
 -localstorage için utils yaz.
 -renderIf Componenti yaz.
 
