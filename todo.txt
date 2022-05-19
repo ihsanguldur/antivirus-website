@@ -1,4 +1,4 @@
--update profile olaylarını bitir.
+-update user test et ve bir hata var consoleda ona bak.
 -localstorage için utils yaz.
 -renderIf Componenti yaz.
 
