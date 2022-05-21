@@ -206,6 +206,7 @@ class UserProfile extends Component{
                                 {onEdit : !this.state.onEdit},
                                 {err : true},
                                 {name : undefined},
+                                {surname : undefined},
                                 {email : undefined}
                             )
                             /*this.setState({onEdit : !this.state.onEdit});
