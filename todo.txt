@@ -1,4 +1,3 @@
--update user test et ve bir hata var consoleda ona bak.
 -update userın içini düzenle.
 -localstorage için utils yaz.
 -renderIf Componenti yaz.

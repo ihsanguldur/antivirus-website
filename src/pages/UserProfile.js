@@ -89,7 +89,7 @@ class UserProfile extends Component{
                     }}
                     type={"text"}
                     //placeholder={this.props.user.data.name +" "+ this.props.user.data.surname}
-                    value={this.state.name === undefined?this.props.user.data.name:this.state.name}/>
+                    value={this.state.name === undefined?this.props.user.data.name+"":this.state.name}/>
                 {/*this.props.user.data.name +" "+ this.props.user.data.surname*/}
             </p>
         )
@@ -108,7 +108,7 @@ class UserProfile extends Component{
                     }}
                     type={"text"}
                     //placeholder={this.props.user.data.name +" "+ this.props.user.data.surname}
-                    value={this.state.surname === undefined?this.props.user.data.surname:this.state.surname}/>
+                    value={this.state.surname === undefined?this.props.user.data.surname+"":this.state.surname}/>
                 {/*this.props.user.data.name +" "+ this.props.user.data.surname*/}
             </p>
         )
@@ -126,7 +126,7 @@ class UserProfile extends Component{
                         this.setState({email : event.target.value});
                     }}
                     type={"email"}
-                    value={this.state.email === undefined?this.props.user.data.email:this.state.email}/>
+                    value={this.state.email === undefined?this.props.user.data.email+"":this.state.email}/>
                 {/*this.props.user.data.email*/}
             </p>
         )
