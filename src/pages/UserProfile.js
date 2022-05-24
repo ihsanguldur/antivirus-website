@@ -9,22 +9,64 @@ import {isEmailValid} from "../utils/validation";
 
 class UserProfile extends Component{
 
+    state={onEdit : false,isHidden: true, name : undefined,surname : undefined, email : undefined, errMsg : "", err : true}
+
     componentDidMount() {
         if(this.props.isUser){
             this.props.actions.getUser(JSON.parse(localStorage.getItem("user")));
         }
     }
 
+    //
+    // setUpStates(...states) {
+    //     states.forEach((s)=>{
+    //         this.setState(s);
+    //     });
+    // }
 
-    setUpStates(...states) {
-        states.forEach((s)=>{
-            this.setState(s);
-        });
+    handleAcceptEvent(){
+        let name = document.getElementById("name").value.trim();
+        let surname = document.getElementById("surname").value.trim();
+        let email = document.getElementById("email").value.trim();
+
+        this.props.actions.updateUser(this.props.user.data._id, {name : name, surname : surname, email : email});
+
+        this.setState({err : true});
+        this.setState({onEdit : false});
+        this.setState({isHidden: true});
     }
 
+    handleChange(event){
+        this.setState({[event.target.name] : event.target.value});
+    }
 
+    handleSaveEdit(){
+        if(this.state.onEdit){
+            let name = document.getElementById("name").value.trim();
+            let surname = document.getElementById("surname").value.trim();
+            let email = document.getElementById("email").value.trim();
+            if(name === "" || surname === "" || email === "") {
+                this.setState({errMsg: "Please Check Your Inputs."})
+                this.setState({err: false});
+            }else if(!isEmailValid(email)){
+                this.setState({errMsg: "Email is not valid."})
+                this.setState({err: false});
+            }else{
+                this.setState({isHidden : false});
+            }
+        }else{
+            this.setState({onEdit : !this.state.onEdit});
+            this.setState({err : true});
+        }
+    }
 
-    state={onEdit : false,isHidden: true, name : undefined,surname : undefined, email : undefined, errMsg : "", err : true}
+    handleCancel(){
+        this.setState({onEdit : !this.state.onEdit});
+        this.setState({err : true});
+        this.setState({name : undefined});
+        this.setState({surname : undefined});
+        this.setState({email : undefined});
+    }
 
     renderBeforeSave() {
         return (
@@ -50,13 +92,7 @@ class UserProfile extends Component{
                     <button
                         className={"animate lg:text-xl md:text-sm text-xs bg-orange-500 hover:bg-orange-600 text-white text-center rounded-lg lg:py-3 lg:px-5 py-2 px-3 absolute top-3/4 left-1/2 -translate-x-1/2 -translate-y-1/2"}
                         onClick={() => {
-                            let name = document.getElementById("name").value.trim();
-                            let surname = document.getElementById("surname").value.trim();
-                            let email = document.getElementById("email").value.trim();
-                            this.props.actions.updateUser(this.props.user.data._id, {name : name, surname : surname, email : email});
-                            this.setState({err : true});
-                            this.setState({onEdit : false});
-                            this.setState({isHidden: true});
+                            this.handleAcceptEvent();
                         }}>
                         Accept
                     </button>
@@ -83,9 +119,10 @@ class UserProfile extends Component{
                 <input
                     className={"placeholder-black " + (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
                     id={"name"}
+                    name={"name"}
                     readOnly={!this.state.onEdit}
                     onChange={(event)=>{
-                        this.setState({name : event.target.value});
+                        this.handleChange(event);
                     }}
                     type={"text"}
                     //placeholder={this.props.user.data.name +" "+ this.props.user.data.surname}
@@ -102,9 +139,10 @@ class UserProfile extends Component{
                 <input
                     className={"placeholder-black " + (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
                     id={"surname"}
+                    name={"surname"}
                     readOnly={!this.state.onEdit}
                     onChange={(event)=>{
-                        this.setState({surname : event.target.value});
+                        this.handleChange(event);
                     }}
                     type={"text"}
                     //placeholder={this.props.user.data.name +" "+ this.props.user.data.surname}
@@ -122,8 +160,9 @@ class UserProfile extends Component{
                     className={"placeholder-black "+ (this.state.onEdit?" focus:outline-orange-400":"focus:outline-none")}
                     id={"email"}
                     readOnly={!this.state.onEdit}
+                    name={"email"}
                     onChange={(event)=>{
-                        this.setState({email : event.target.value});
+                        this.handleChange(event);
                     }}
                     type={"email"}
                     value={this.state.email === undefined?this.props.user.data.email+"":this.state.email}/>
@@ -176,23 +215,7 @@ class UserProfile extends Component{
                         className={"animate bg-orange-500 hover:bg-orange-600 mt-5 text-white font-bold py-2 px-6 rounded-md focus:outline-none xl:text-xl lg:text-lg md:text-base text-sm h-fit"}
                         type={"button"}
                         onClick={()=>{
-                            if(this.state.onEdit){
-                                let name = document.getElementById("name").value.trim();
-                                let surname = document.getElementById("surname").value.trim();
-                                let email = document.getElementById("email").value.trim();
-                                if(name === "" || surname === "" || email === "") {
-                                    this.setState({errMsg: "Please Check Your Inputs."})
-                                    this.setState({err: false});
-                                }else if(!isEmailValid(email)){
-                                    this.setState({errMsg: "Email is not valid."})
-                                    this.setState({err: false});
-                                }else{
-                                    this.setState({isHidden : false});
-                                }
-                            }else{
-                                this.setState({onEdit : !this.state.onEdit});
-                                this.setState({err : true});
-                            }
+                            this.handleSaveEdit();
                         }}>
                         {this.state.onEdit?"Save":"Edit"}
                     </button>
@@ -202,18 +225,14 @@ class UserProfile extends Component{
                         onClick={()=>{
 
                             //deneme fatihe bir sor ona göre tamamına uygula.
-                            this.setUpStates(
+                            /*this.setUpStates(
                                 {onEdit : !this.state.onEdit},
                                 {err : true},
                                 {name : undefined},
                                 {surname : undefined},
                                 {email : undefined}
-                            )
-                            /*this.setState({onEdit : !this.state.onEdit});
-                            this.setState({err : true});
-                            this.setState({name : undefined});
-                            this.setState({surname : undefined});
-                            this.setState({email : undefined});*/
+                            )*/
+                            this.handleCancel();
                         }}>
                         Cancel
                     </button>}

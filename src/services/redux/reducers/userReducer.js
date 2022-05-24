@@ -22,7 +22,6 @@ export default function userReducer(state = initialStates.temp,action){
             }else {
                 newState1 = {success:false, data : user, message : action.payload.message};
             }
-            console.log(newState1)
             return newState1;
         default:
             return state;
