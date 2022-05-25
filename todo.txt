@@ -1,8 +1,4 @@
--update userın içini düzenle.
--localstorage için utils yaz.
--renderIf Componenti yaz.
-
-
+-kullanıcılar destek talebi oluştursun.
 
 -privateComponent ne bi bak.(cookie)
 
