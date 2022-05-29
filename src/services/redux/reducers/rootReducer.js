@@ -8,6 +8,7 @@ import faqReducer from "./faqReducer";
 import memberReducer from "./memberReducer";
 import customerSupportReducer from './customerSupportReducer';
 import userReducer from './userReducer';
+import classicSupportReducer from './classicSupportReducer';
 
 const rootReducer = combineReducers({
     membershipReducer,
@@ -18,7 +19,8 @@ const rootReducer = combineReducers({
     faqReducer,
     memberReducer,
     customerSupportReducer,
-    userReducer
+    userReducer,
+    classicSupportReducer
 });
 
 export default rootReducer;
