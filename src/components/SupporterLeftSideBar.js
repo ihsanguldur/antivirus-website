@@ -2,11 +2,15 @@ import React, {Component} from 'react'
 import {connect} from "react-redux";
 import {bindActionCreators} from "redux";
 import {selectedCustomer} from "../services/redux/actions/customerSupportActions";
-import {getClassicSupportRequests} from "../services/redux/actions/classicSupportActions";
+import {getClassicSupportRequests, updateClassicSupport} from "../services/redux/actions/classicSupportActions";
 
 class SupporterLeftSideBar extends Component {
 
     componentDidMount() {
+        this.props.actions.getClassicSupportRequests();
+    }
+
+    componentDidUpdate(prevProps, prevState, snapshot) {
         this.props.actions.getClassicSupportRequests();
     }
 
@@ -21,6 +25,7 @@ class SupporterLeftSideBar extends Component {
                         className={"py-3 flex items-center border-b border-orange-400 cursor-pointer"}
                         onClick={()=>{
                             this.props.actions.getSelectedCustomer({...r.sender, membership : r.membership});
+                            this.props.actions.updateClassicSupportRequests({_id : r._id,state : "resuming"});
                         }}>
                         <img
                             className={"lg:h-8 lg:w-8 h-7 w-7 rounded-full ml-10 mr-3"}
@@ -48,7 +53,8 @@ function mapDispatchToProps(dispatch){
     return{
         actions : {
             getSelectedCustomer : bindActionCreators(selectedCustomer,dispatch),
-            getClassicSupportRequests : bindActionCreators(getClassicSupportRequests,dispatch)
+            getClassicSupportRequests : bindActionCreators(getClassicSupportRequests,dispatch),
+            updateClassicSupportRequests : bindActionCreators(updateClassicSupport, dispatch)
         }
     }
 }

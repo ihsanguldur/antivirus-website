@@ -1,4 +1,4 @@
--supporter bir kullanıcıya tıkladığı zaman onu resuming olarak güncelle. ve tekrar tüm requestleri getirmesi için istek at.
+-supporter bir kullanıcıya tıkladığı zaman onu resuming olarak güncelleniyor bunu bir test et.
 
 
 -privateComponent ne bi bak.(cookie)
