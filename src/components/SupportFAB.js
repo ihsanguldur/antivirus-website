@@ -18,7 +18,7 @@ class SupportFAB extends Component {
                     id={"supportMenu"}
                     className={"fixed flex flex-col bg-white bottom-[20%] right-[5%] xl:w-1/6 w-1/3 rounded-lg shadow-2xl z-50 lg:text-lg md:text-base  sm:text-sm text-xs font-normal border text-center border-orange-500 hidden"}
                     onClick={()=>{
-                        this.props.actions.createClassicSupport(this.props.member.data.user._id);
+                        this.props.actions.createClassicSupport(this.props.member.data.user._id, this.props.member.data.membership.name);
                     }}>
                     {this.props.member.success && (this.props.member.data.membership.features.find((f)=> f === "canlı destek") && (<Link
                         to={"/live-support"}

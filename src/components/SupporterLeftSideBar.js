@@ -20,7 +20,7 @@ class SupporterLeftSideBar extends Component {
                         key={r._id}
                         className={"py-3 flex items-center border-b border-orange-400 cursor-pointer"}
                         onClick={()=>{
-                            this.props.actions.getSelectedCustomer(r.sender);
+                            this.props.actions.getSelectedCustomer({...r.sender, membership : r.membership});
                         }}>
                         <img
                             className={"lg:h-8 lg:w-8 h-7 w-7 rounded-full ml-10 mr-3"}

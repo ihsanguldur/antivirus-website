@@ -17,7 +17,7 @@ class SupporterRightSideBar extends Component {
                     <p className={"my-1 lg:text-base text-sm text-center md:block hidden"}><span className={"font-bold text-orange-400"}>Name : </span>{this.props.selectedCustomer.name + " " +this.props.selectedCustomer.surname}</p>
                     <p className={"my-1 lg:text-base text-sm text-center"}><span className={"font-bold text-orange-400"}>Email : </span>{this.props.selectedCustomer.email}</p>
                     <p className={"my-1 lg:text-base text-sm text-center"}><span className={"font-bold text-orange-400"}>Membership : </span>{this.props.selectedCustomer.membership}</p>
-                    <p className={"my-1 lg:text-base text-sm text-center"}><span className={"font-bold text-orange-400"}> Membership Date : </span>{this.props.selectedCustomer.startAt}</p>
+                    <p className={"my-1 lg:text-base text-sm text-center"}><span className={"font-bold text-orange-400"}> Membership Date : </span>{this.props.selectedCustomer.createdAt.substring(0,10)}</p>
 
                 </div>
             </div>

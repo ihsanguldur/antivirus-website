@@ -1,4 +1,4 @@
--destek talebi gönderiliyor. destek talebi alınıyor. destek talebinde membership detayları eksik onları ayarla.
+-normal hesaptan supportera geçerken success sıfırla.
 -aynı anda 2 istek birden oluşturulabiliyor onu düzenle.
 -supporter bir kullanıcıya tıkladığı zaman onu resuming olarak güncelle. ve tekrar tüm requestleri getirmesi için istek at.
 
