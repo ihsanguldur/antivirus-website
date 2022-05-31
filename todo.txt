@@ -1,5 +1,3 @@
--normal hesaptan supportera geçerken success sıfırla.
--aynı anda 2 istek birden oluşturulabiliyor onu düzenle.
 -supporter bir kullanıcıya tıkladığı zaman onu resuming olarak güncelle. ve tekrar tüm requestleri getirmesi için istek at.
 
 

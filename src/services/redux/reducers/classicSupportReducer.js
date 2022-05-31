@@ -11,5 +11,4 @@ export default function classicSupportReducer(state = initialStates.temp, action
         default:
             return state;
     }
-
 }

@@ -15,7 +15,7 @@ class SupporterLeftSideBar extends Component {
             <div
                 id={"supporterLeftSideBar"}
                 className={"md:col-span-3 col-span-12 md:border-b-0 border-b border-l border-orange-400 h-full overflow-y-auto"}>
-                {this.props.supportRequests.success && this.props.supportRequests.data.map(r => (
+                {this.props.supportRequests.data && this.props.supportRequests.data.map(r => (
                     <div
                         key={r._id}
                         className={"py-3 flex items-center border-b border-orange-400 cursor-pointer"}
